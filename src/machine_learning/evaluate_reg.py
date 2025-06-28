@@ -11,25 +11,21 @@ from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
 def regression_performance(X_train, y_train, X_test, y_test, pipeline):
 
-    st.write('#### Model Evaluation')
-    st.write('#### Train Set')
+    st.info('#### Train Set')
     regression_evaluation(X_train, y_train, pipeline)
-    st.write('#### Test Set')
+    st.write("")
+    st.write("")
+    st.info('#### Test Set')
     regression_evaluation(X_test, y_test, pipeline)
 
 
 def regression_evaluation(X, y, pipeline):
 
     prediction = pipeline.predict(X)
-    st.write(f"**R2 Score:** {r2_score(y, prediction):.3f}")
-    st.write(f"**Mean Absolute Error:** {mean_absolute_error(y, prediction):.3f}")
-    st.write(f"**Mean Squared Error:** {mean_squared_error(y, prediction):.3f}")
-    st.write(f"**Root Mean Squared Error:** {np.sqrt(mean_squared_error(y, prediction)):.3f}")
-	
-	#st.metric(label="R2 Score", value=f"{r2:.3f}")
-	#st.metric(label="Mean Absolute Error", value=f"{mae:.3f}")
-	#st.metric(label="Mean Squared Error", value=f"{mse:.3f}")
-	#st.metric(label="Root Mean Squared Error", value=f"{rmse:.3f}")
+    st.write(f"🔶 **R2 Score:** {r2_score(y, prediction):.3f}")
+    st.write(f"🔶 **Mean Absolute Error:** {mean_absolute_error(y, prediction):.3f}")
+    st.write(f"🔶 **Mean Squared Error:** {mean_squared_error(y, prediction):.3f}")
+    st.write(f"🔶 **Root Mean Squared Error:** {np.sqrt(mean_squared_error(y, prediction)):.3f}")
 
 
 def regression_evaluation_plots(X_train, y_train, X_test, y_test, pipeline, alpha_scatter=0.5):
