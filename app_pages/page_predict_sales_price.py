@@ -1,8 +1,12 @@
 # import streamlit as st
 # import pandas as pd
+# import numpy as np
 # import matplotlib.pyplot as plt
+# import seaborn as sns
+# sns.set_style('whitegrid')
+# from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 # from src.data_management import load_housing_data, load_inherited_housing_data, load_pkl_file
-# from src.machine_learning.evaluate_clf import clf_performance
+# from src.machine_learning.evaluate_reg import clf_performance
 
 
 # def page_predict_sales_price_body():
