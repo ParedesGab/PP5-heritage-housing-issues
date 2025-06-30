@@ -14,8 +14,8 @@ def predict_saleprice(X_live, best_features, saleprice_pipeline):
     # SalePrice = float(proba[0].round(1))
     # amount = '${:,.2f}'.format(SalePrice)
 
-    st.write(sale_price_prediction)
-    
+    #st.write(sale_price_prediction)
+
     predicted_prices_series = pd.Series(sale_price_prediction, index=X_live.index)
     
 

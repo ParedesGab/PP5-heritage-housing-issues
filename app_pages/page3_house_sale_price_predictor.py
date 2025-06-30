@@ -24,16 +24,6 @@ def page_predict_house_sale_price_body():
                        )
     inherited_houses = load_inherited_housing_data()
 
-    sale_price_inh_houses = predict_saleprice(
-        inherited_houses, best_features, saleprice_pipe
-        )
-    predicted_price_df = sale_price_inh_houses.to_frame(
-        name="Predicted Sale Price")
-    
-    best_feat_inh_houses = inherited_houses[best_features]
-
-    merged_display_df = pd.concat([best_feat_inh_houses, predicted_price_df], axis=1)
-
     st.write("### Interface to Predict House Sale Price")
     st.info(
         f"* This interface answers Business requirement 2"
@@ -41,7 +31,25 @@ def page_predict_house_sale_price_body():
         f" so, the client can maximize the sales price for her inherited properties."
     )
     with st.expander("ℹ️ Visualize the 4 inherited Houses attributes"):
+        sale_price_inh_houses = predict_saleprice(
+        inherited_houses, best_features, saleprice_pipe)
+
+        predicted_price_df = sale_price_inh_houses.to_frame(
+        name="Predicted Sale Price")
+
+        best_feat_inh_houses = inherited_houses[best_features]
+        merged_display_df = pd.concat([best_feat_inh_houses, predicted_price_df], axis=1)
         st.write(merged_display_df)
+
+    # --- Code for calculating and displaying the sum of predicted prices ---
+    st.write("---") 
+    st.subheader("Total Predicted Sale Price for Inherited Houses:")
+
+    # Calculate the sum of all predicted sale prices
+    total_predicted_price = sale_price_inh_houses.sum()
+    st.metric(label="Total Predicted Price for the 4 Inherited Houses:",
+               value=f"${total_predicted_price:,.2f}")
+
 
     st.write("---")
 
@@ -50,8 +58,15 @@ def page_predict_house_sale_price_body():
 
     # predict on live data
     if st.button("Run Predictive Analysis"):
-        predict_saleprice(
-            X_live, best_features, saleprice_pipe)
+        price_prediction_series = predict_saleprice(
+        inherited_houses, best_features, saleprice_pipe)
+
+    # Option 2: Display as a metric (great for single, prominent numbers)
+        if not price_prediction_series.empty:
+            predicted_value = price_prediction_series.iloc[0]
+            st.metric(label="Predicted House Sale Price", value=f"${predicted_value:,.2f}")
+        else:
+            st.warning("No prediction could be made.")
 
 
 def DrawInputsWidgets():
