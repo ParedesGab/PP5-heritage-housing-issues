@@ -5,7 +5,7 @@ from src.data_management import load_housing_data, load_pkl_file
 from src.machine_learning.evaluate_reg import regression_performance, regression_evaluation_plots
 
 
-def page_predict_sales_price_body():
+def page_display_technical_overview():
 
     # load House Sales Price pipeline files
 	

@@ -34,6 +34,6 @@ def page_summary_body():
     # Link to README file, so the users can have access to full project documentation
     st.write("")
     st.write(
-        f"✨ For additional information, please visit and **read** the "
+        f"🔶 For additional information, please visit and **read** the "
         f"[Project README file](https://github.com/Code-Institute-Solutions/churnometer).")
     

@@ -10,8 +10,8 @@ def load_housing_data():
 
 @st.cache_data
 def load_inherited_housing_data():
-    df = pd.read_csv("input/datasets/raw/house-price-20211124T154130Z-001/house-price/inherited_houses.csv")
-    return df 
+    df_inherited = pd.read_csv("inputs/datasets/raw/house-price-20211124T154130Z-001/house-price/inherited_houses.csv")
+    return df_inherited 
 
 
 def load_pkl_file(file_path):
