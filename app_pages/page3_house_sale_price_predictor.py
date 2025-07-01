@@ -58,15 +58,10 @@ def page_predict_house_sale_price_body():
 
     # predict on live data
     if st.button("Run Predictive Analysis"):
-        price_prediction_series = predict_saleprice(
-        inherited_houses, best_features, saleprice_pipe)
-
-    # Option 2: Display as a metric (great for single, prominent numbers)
-        if not price_prediction_series.empty:
-            predicted_value = price_prediction_series.iloc[0]
-            st.metric(label="Predicted House Sale Price", value=f"${predicted_value:,.2f}")
-        else:
-            st.warning("No prediction could be made.")
+        price_prediction = predict_saleprice(
+        X_live, best_features, saleprice_pipe)
+        #st.write(price_prediction)
+        st.metric(label="Predicted House Sale Price", value=f"${price_prediction.iloc[0]:,.2f}")
 
 
 def DrawInputsWidgets():
@@ -88,17 +83,21 @@ def DrawInputsWidgets():
     # and set initial values
     with col1:
         feature = "OverallQual"
-        st_widget = st.selectbox(
+        st_widget = st.number_input(
             label=feature,
-            options=df[feature].unique()
+            min_value=1,   # Starts at 1
+            max_value=10,  # Maximum value is 10
+            value=1,       # Initial value displayed is 1
+            step=1 
         )
     X_live[feature] = st_widget
 
     with col2:
         feature = "TotalBsmtSF"
-        st_widget = st.selectbox(
+        st_widget = st.number_input(
             label=feature,
-            options=df[feature].unique()
+            min_value=df[feature].min()*percentageMin,
+            max_value=df[feature].max()*percentageMax,
         )
     X_live[feature] = st_widget
 
@@ -114,9 +113,10 @@ def DrawInputsWidgets():
 
     with col4:
         feature = "GarageArea"
-        st_widget = st.selectbox(
+        st_widget = st.number_input(
             label=feature,
-            options=df[feature].unique()
+            min_value=df[feature].min()*percentageMin,
+            max_value=df[feature].max()*percentageMax,
         )
     X_live[feature] = st_widget
 
