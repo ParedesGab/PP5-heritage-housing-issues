@@ -5,70 +5,96 @@ import seaborn as sns
 sns.set_style("whitegrid")
 from src.data_management import load_housing_data
 
-# hard copied from "2-House Sales Price Study" notebook
-vars_to_study = ['1stFlrSF', 'GarageArea', 'GrLivArea',
-						'OverallQual', 'TotalBsmtSF', 'YearBuilt']
+# Hard copied from "2-HouseSalesPriceStudy" notebook
+vars_to_study = ['1stFlrSF', 'GarageArea', 'GrLivArea', 'OverallQual',
+                  'TotalBsmtSF', 'YearBuilt']
 
 
 def page_house_sales_price_study_body():
-    # load data
+    # Load the housing data
     df = load_housing_data()
 
     st.write("")
     st.write("")
     st.write("### House Sales Price Study")
     st.write("")
-    st.info(f"* The client is interested in understanding the patterns "
-            f"from housing records from Ames, Iowa, so that the client " 
-            f"can learn the most relevant house attributes that correlate "
-            f"to a house sales price.")
+    st.success(
+        f"This page answers **Business requirement 1:**\n\n"
+        f"* The client is interested in understanding the patterns from the "
+        f"housing records from Ames, Iowa, so that the client can learn the "
+        f"most relevant variables (house attributes) correlated with a "
+        f"house sales price.\n\n"
+    )
 
-    # inspect data
-    if st.checkbox("Inspect House Records Dataset"):
+    # Inspect and display the original dataset
+    if st.checkbox("Inspect House Records Dataset 🏠🏠🏠"):
         st.write(
-            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns. "
-            f"Below, please find the first 10 rows.")
-
+            f"* The dataset has {df.shape[0]} rows and "
+            f"{df.shape[1]} columns.\n"
+            f"* The Table below displays the first 10 rows of the dataset:\n")
         st.write(df.head(10))
+        st.write(
+            f"* Note that the dataset has missing values (None), to learn "
+            f"how they were handled please revise the [Project README file]"
+            f"(https://github.com/ParedesGab/PP5-heritage-housing-issues).\n"
+            )
 
     st.write("---")
 
     # Correlation Study Summary
-    st.write(
-        f"* A correlation study was conducted in the notebook to better understand how "
-        f"the variables correlated with a House Sales Price. \n"
-        f"* The most correlated variable are: **{vars_to_study}**"
-    )
-
-    # Text based on "2-House Sales Price Study" notebook - "Conclusions and Next steps" section
     st.info(
-        f"The correlation indications and plots below interpretation converge. "
-        f"It is indicated that: \n"
-        f"* Sale prices are typically higher for homes with larger first-floor square footage. \n"
-        f"* Sale prices are typically higher for homes with larger garages. \n"
-        f"* Sale prices are typically higher for homes with larger above-grade living areas. \n"
-        f"* Sale prices are typically higher when the overall quality of the house's materials and finish improves. \n"
-        f"* Sale prices are typically higher for homes with larger total basement area. \n"
-		f"* Sale prices are typically higher for homes that were recently constructed. \n"
+        f"**CORRELATION STUDY**\n\n"
+        f"* Pearson and Spearman correlation studies were conducted to better "
+        f"understand how the variables correlate with the target Sales Price.\n"
+        f"* The most correlated variables with Sales Price are: "
+        f"**{vars_to_study}**\n"
     )
+    st.write("")
 
-    # Code copied from "2-House Sales Price Study" notebook - "EDA on variables to study" section
-	
-	# Code from Step 1:
-    df_eda = df.filter(vars_to_study + ['SalePrice'])
+    # Text based on "2-HouseSalesPriceStudy" notebook:
+    # Conclusions and Next steps" section
+    st.success(
+        f"**CONCLUSIONS**\n\n"
+        f"The correlation analysis indicates that:\n"
+        f"* Sale prices are typically higher for homes with larger first-floor "
+        f"square footage.\n"
+        f"* Sale prices are typically higher for homes with larger garages.\n"
+        f"* Sale prices are typically higher for homes with larger above-grade "
+        f"living areas.\n"
+        f"* Sale prices are typically higher when the overall quality of the "
+        f"house's materials and finish improves.\n"
+        f"* Sale prices are typically higher for homes with larger "
+        f"total basement area.\n"
+		f"* Sale prices are typically higher for homes that were recently "
+        f"constructed.\n"
+    )
+    st.write("")
+    st.write("")
 
     # Individual plots per variable
+    st.write(
+        f"The boxes below display data visualisations of the "
+        f"top correlated variables against the sale price.\n"
+    )
+
+    # Code copied from "2-HouseSalesPriceStudy" notebook:
+    # "EDA on variables to study" section
+    df_eda = df.filter(vars_to_study + ['SalePrice'])
+
     if st.checkbox("Sale Price per Variable"):
         sale_price_per_variable(df_eda)
 
     # Parallel plot
     if st.checkbox("Parallel Plot"):
         st.write(
-            f"* Red indicates houses sold at the highest prices")
+            f"* Red: Houses sold at the highest prices.\n"
+            f"* Dark Blue: Houses sold at the lowes prices.\n"
+            )
         parallel_plot_sale_price(df_eda)
 
 
-# function created using "2-House Sales Price Study" notebook code - "Step 2: Plot their variable distribution"
+# function created using "2-HouseSalesPriceStudy" notebook code:
+# "Step 2: Plot their variable distribution"
 def sale_price_per_variable(df_eda):
     target_var = 'SalePrice'
     for col in df_eda.drop([target_var], axis=1).columns.to_list():
@@ -78,7 +104,8 @@ def sale_price_per_variable(df_eda):
             plot_numerical_vs_continuous(df_eda, col, target_var)
 
 
-# Functions copied from "2-House Sales Price Study" notebook - "Step 2: Plot their variable distribution"
+# Functions copied from "2-HouseSalesPriceStudy" notebook:
+# "Step 2: Plot their variable distribution"
 def plot_categorical(df, col, target_var):
     fig, axes = plt.subplots(figsize=(12, 5))
     sns.countplot(data=df, x=col, hue=target_var,
@@ -99,7 +126,8 @@ def plot_numerical_vs_continuous(df, col, target_var):
     plt.tight_layout()
     st.pyplot(fig) 
 
-# function created using "2-House Sales Price Study" notebook code - Parallel Plot section
+
+# function created using "2-HouseSalesPriceStudy" notebook code - Parallel Plot section
 def parallel_plot_sale_price(df_eda):
     fig = px.parallel_coordinates(df_eda, color="SalePrice", dimensions = vars_to_study,
                               color_continuous_scale = 'Jet')
