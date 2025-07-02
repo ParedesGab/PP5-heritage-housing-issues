@@ -1,16 +1,16 @@
 import plotly.express as px
 import streamlit as st
-from src.data_management import load_housing_data
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style("whitegrid")
+from src.data_management import load_housing_data
 
 # hard copied from "2-House Sales Price Study" notebook
 vars_to_study = ['1stFlrSF', 'GarageArea', 'GrLivArea',
 						'OverallQual', 'TotalBsmtSF', 'YearBuilt']
 
-def page_house_sales_price_study_body():
 
+def page_house_sales_price_study_body():
     # load data
     df = load_housing_data()
 
@@ -71,7 +71,6 @@ def page_house_sales_price_study_body():
 # function created using "2-House Sales Price Study" notebook code - "Step 2: Plot their variable distribution"
 def sale_price_per_variable(df_eda):
     target_var = 'SalePrice'
-
     for col in df_eda.drop([target_var], axis=1).columns.to_list():
         if df_eda[col].dtype == 'object':
             plot_categorical(df_eda, col, target_var)

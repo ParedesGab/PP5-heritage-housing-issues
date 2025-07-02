@@ -1,39 +1,53 @@
 import streamlit as st
 
-def page_summary_body():
 
+def page_summary_body():
     st.write("")
     st.write("")
     st.write("### Project Summary")
     st.write("")
 
-    # text based on README file - "Dataset Content" section
+    # text based on README file - " Project Terms & Jargon" section
     st.success(
-		f"**Project Terms & Jargon**\n"
+		f"**PROJECT TERMS & JARGON**\n"
 		f"* A **house** refers to an individual residential unit in Ames, Iowa.\n"
-		f"* A **house attribute** is a characteristic of the house, such as square footage, quality rating, or year built.\n"
-		f"* The **Sale Price** is the actual price a property sold for, which our model aims to predict.\n"
-		f"* An **inherited property** refers to one of the 4 inherited houses for which the client requires a precise sale price prediction.\n")
-    
+		f"* A **house attribute** is a characteristic of the house, such as Floor "
+    f"Area, Year Built, Kitchen Quality, etc.\n"
+		f"* The **Sale Price** is the actual selling price of a house, and our "
+    f"model is built to predict this value for houses intended to be sold.\n"
+		f"* An **inherited property** refers to one of the 4 inherited houses for "
+    f"which the client requires a sale price prediction.\n"
+    )
     st.write("")
+
+    # Text based on README file - "Dataset Content" section
     st.info(
-        f"**Project Dataset**\n"
-		f"* The dataset represents **housing records from Ames, Iowa**, indicating house profiles.\n"
-		f"* A house profile contains information on individual house attributes (e.g., Floor Area, Basement Finished Area, Garage Area, Garage Finish, Overall Quality, Kitchen Quality, Lot Size, Porch Area, Wood Deck, Year Built, Remodel Date, etc.) and their respective **Sale Prices**.\n"
-		f"* The houses in this dataset were constructed **between 1872 and 2010**.\n")
-	
-    # text copied from README file - "Business Requirements" section
+    f"**PROJECT DATASET**\n"
+		f"* The dataset comprises 1,460 public records of houses sold in Ames, "
+    f"Iowa, and constructed between 1872 and 2010.\n"
+		f"* The dataset features 24 attributes, each detailing a specific house "
+    f"characteristic (e.g., Floor Area, Garage Area, Overall Quality, Year "
+    f"Built, Sale Price, etc.).\n"
+    )
     st.write("")
+
+    # Text from "Business Requirements" from README but adapted for the app page 
     st.success(
-        f"Prohect business requirements:\n"
-        f"* 1 - The client is interested in understanding the patterns from the housing records from Ames, Iowa"
-        f" so that the client can learn the most relevant variables (i.e., house attributes) that are correlated to a house sales price.\n"
-        f"* 2 - The client is interested in predicting the house sale prices from her 4 inherited houses"
-        f" so, the client can maximize the sales price for her inherited properties.")
-    
-    # Link to README file, so the users can have access to full project documentation
+        f"**PROJECT BUSINESS REQUIREMENTS**\n\n"
+        f"1 - The client is interested in understanding the patterns from the "
+        f"housing records from Ames, Iowa, so that the client can learn the "
+        f"most relevant variables (house attributes) correlated with a "
+        f"house sales price.\n\n"
+        f"2 - The client is interested in predicting the house sale prices "
+        f"from her 4 inherited houses, so that the client can maximize the "
+        f"sales price for her properties.\n"
+    )
     st.write("")
+
+    # Full documentation in README
     st.write(
-        f"🔶 For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/Code-Institute-Solutions/churnometer).")
+        f"🔶 For additional information, please revise the "
+        f"[Project README file]"
+        f"(https://github.com/ParedesGab/PP5-heritage-housing-issues)."
+        )
     
