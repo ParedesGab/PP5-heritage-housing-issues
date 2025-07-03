@@ -1,61 +1,62 @@
-# The Heritage Housing project
+# The Heritage Housing project 🏠🏠🏠
 
 (Developer: Gabriela Fabiola Paredes Rojas)
 
 ![Mockup image](documentation/website-screenshots/1-mockup.png)
 
-**Welcome to the Heritage Housing Issues App!** 🏠🏠🏠
+**Welcome to the Heritage Housing Issues App!**
 
 This project proposes an Machine Learning-powered solution that
 will analyze housing records from Ames, Iowa, to uncover crucial correlations
 through data visualization and a predictive regression model in this region.
 
-🔶 Discover which house attributes most significantly influence sale prices!
+    🔸 Discover which house attributes most significantly influence sale prices!
 
-🔶 Visualize the total value of your 4 inherited houses!
+    🔸 Visualize the total value of your 4 inherited houses!
 
-🔶 Predict the value of any other house in the Ames area!
+    🔸 Predict the value of any other house in the Ames area!
 
 Are you ready to maximize the sales price of your properties?
 
 Let's go! 🚀
 
-+ The live page can be accessed via this [link](https://my-finances-tracker-5a1726e2723f.herokuapp.com/)
++ The live page can be accessed via this [Heroku link.](https://my-finances-tracker-5a1726e2723f.herokuapp.com/)
 
 ---
-## **Dataset Content**
 
 ## Dataset Content
 
-* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
-* The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
++ The dataset is sourced from Kaggle, and comprises 1,460 public records of houses sold in Ames, Iowa, constructed between 1872 and 2010.
++ The dataset features 24 attributes, each detailing a specific house characteristic.
++ From these, 20 are numeric and 4 are categorical (objects).
++ For dataset details, please see the table below:
 
-|Variable|Meaning|Units|
-|:----|:----|:----|
-|1stFlrSF|First Floor square feet|334 - 4692|
-|2ndFlrSF|Second-floor square feet|0 - 2065|
-|BedroomAbvGr|Bedrooms above grade (does NOT include basement bedrooms)|0 - 8|
-|BsmtExposure|Refers to walkout or garden level walls|Gd: Good Exposure; Av: Average Exposure; Mn: Minimum Exposure; No: No Exposure; None: No Basement|
-|BsmtFinType1|Rating of basement finished area|GLQ: Good Living Quarters; ALQ: Average Living Quarters; BLQ: Below Average Living Quarters; Rec: Average Rec Room; LwQ: Low Quality; Unf: Unfinshed; None: No Basement|
-|BsmtFinSF1|Type 1 finished square feet|0 - 5644|
-|BsmtUnfSF|Unfinished square feet of basement area|0 - 2336|
-|TotalBsmtSF|Total square feet of basement area|0 - 6110|
-|GarageArea|Size of garage in square feet|0 - 1418|
-|GarageFinish|Interior finish of the garage|Fin: Finished; RFn: Rough Finished; Unf: Unfinished; None: No Garage|
-|GarageYrBlt|Year garage was built|1900 - 2010|
-|GrLivArea|Above grade (ground) living area square feet|334 - 5642|
-|KitchenQual|Kitchen quality|Ex: Excellent; Gd: Good; TA: Typical/Average; Fa: Fair; Po: Poor|
-|LotArea| Lot size in square feet|1300 - 215245|
-|LotFrontage| Linear feet of street connected to property|21 - 313|
-|MasVnrArea|Masonry veneer area in square feet|0 - 1600|
-|EnclosedPorch|Enclosed porch area in square feet|0 - 286|
-|OpenPorchSF|Open porch area in square feet|0 - 547|
-|OverallCond|Rates the overall condition of the house|10: Very Excellent; 9: Excellent; 8: Very Good; 7: Good; 6: Above Average; 5: Average; 4: Below Average; 3: Fair; 2: Poor; 1: Very Poor|
-|OverallQual|Rates the overall material and finish of the house|10: Very Excellent; 9: Excellent; 8: Very Good; 7: Good; 6: Above Average; 5: Average; 4: Below Average; 3: Fair; 2: Poor; 1: Very Poor|
-|WoodDeckSF|Wood deck area in square feet|0 - 736|
-|YearBuilt|Original construction date|1872 - 2010|
-|YearRemodAdd|Remodel date (same as construction date if no remodelling or additions)|1950 - 2010|
-|SalePrice|Sale Price|34900 - 755000|
+|Variable|Meaning|Units|Data Type|
+|:----|:----|:----|:----|
+|1stFlrSF|First Floor square feet|334 - 4692|integer|
+|2ndFlrSF|Second-floor square feet|0 - 2065|float|
+|BedroomAbvGr|Bedrooms above grade (does NOT include basement bedrooms)|0 - 8|float|
+|BsmtExposure|Refers to walkout or garden level walls|Gd: Good Exposure; Av: Average Exposure; Mn: Minimum Exposure; No: No Exposure; None: No Basement|object|
+|BsmtFinType1|Rating of basement finished area|GLQ: Good Living Quarters; ALQ: Average Living Quarters; BLQ: Below Average Living Quarters; Rec: Average Rec Room; LwQ: Low Quality; Unf: Unfinshed; None: No Basement|object|
+|BsmtFinSF1|Type 1 finished square feet|0 - 5644|integer|
+|BsmtUnfSF|Unfinished square feet of basement area|0 - 2336|integer|
+|TotalBsmtSF|Total square feet of basement area|0 - 6110|integer|
+|GarageArea|Size of garage in square feet|0 - 1418|integer|
+|GarageFinish|Interior finish of the garage|Fin: Finished; RFn: Rough Finished; Unf: Unfinished; None: No Garage|object|
+|GarageYrBlt|Year garage was built|1900 - 2010|float|
+|GrLivArea|Above grade (ground) living area square feet|334 - 5642|integer|
+|KitchenQual|Kitchen quality|Ex: Excellent; Gd: Good; TA: Typical/Average; Fa: Fair; Po: Poor|object|
+|LotArea| Lot size in square feet|1300 - 215245|integer|
+|LotFrontage| Linear feet of street connected to property|21 - 313|float|
+|MasVnrArea|Masonry veneer area in square feet|0 - 1600|float|
+|EnclosedPorch|Enclosed porch area in square feet|0 - 286|float|
+|OpenPorchSF|Open porch area in square feet|0 - 547|integer|
+|OverallCond|Rates the overall condition of the house|10: Very Excellent; 9: Excellent; 8: Very Good; 7: Good; 6: Above Average; 5: Average; 4: Below Average; 3: Fair; 2: Poor; 1: Very Poor|integer|
+|OverallQual|Rates the overall material and finish of the house|10: Very Excellent; 9: Excellent; 8: Very Good; 7: Good; 6: Above Average; 5: Average; 4: Below Average; 3: Fair; 2: Poor; 1: Very Poor|integer|
+|WoodDeckSF|Wood deck area in square feet|0 - 736|float|
+|YearBuilt|Original construction date|1872 - 2010|integer|
+|YearRemodAdd|Remodel date (same as construction date if no remodelling or additions)|1950 - 2010|integer|
+|SalePrice|Sale Price|34900 - 755000|integer|
 
 ## Business Requirements
 
