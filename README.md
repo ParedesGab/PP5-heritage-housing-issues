@@ -180,22 +180,28 @@ enabling them to optimize sales strategies and maximize value for houses they in
 
   + Contain  an introduction to the **Correlation Study** that displays the most correlated variables to SalePrice.
   + Contain a summary of its **conclusions**.
-  + Include a checkbox to display individual scatter plots, visualizing SalePrice levels against each of the most correlated variables. Scatter plots were selected as the appropriate visualization method because SalePrice and all identified 'most correlated variables' (1stFlrSF, GarageArea, GrLivArea, TotalBsmtSF, YearRemodAdd) can be considered continuous numerical variables, making them the most informative choice for illustrating these relationships (Figures below – Scatter Plots).
-  
-![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+  + Include a checkbox to display individual scatter plots, visualizing SalePrice levels against each of the most correlated variables. Scatter plots were selected as the appropriate visualization method because SalePrice and all identified 'most correlated variables' (1stFlrSF, GarageArea, GrLivArea, OverallQual, TotalBsmtSF, YearBuilt) can be considered continuous numerical variables, making them the most informative choice for illustrating these relationships (Figures below – Scatter Plots).
 
-![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
++ SalePrice vs 1stFlrSF
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot1-saleprice-vs-1stFlrSF.png)
 
-![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
++ SalePrice vs GarageArea
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot2-saleprice-vs-garagearea.png)
 
-![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
++ SalePrice vs GrLivArea
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot3-saleprice-vs-grlivarea.png)
 
-![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
++ SalePrice vs OverallQual
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot4-saleprice-vs-overallqual.png)
 
-![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
++ SalePrice vs TotalBsmtSF
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot5-saleprice-vs-totalbsmtsf.png)
+
++ SalePrice vs YearBuilt
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot6-saleprice-vs-yearbuilt.png)
 
 + Include a Parallel coordinates plot featuring SalePrice and its correlated variables. This visualization offers a holistic understanding of how these key variables interact with SalePrice (Figure below – Parallel plot).
-![Parallel plot](documentation/screenshots/parallelplot.png)
+![Parallel plot](documentation/screenshots/parallel_plot.png)
 
 > [!NOTE]
 > While not displayed on this page, it's important to note that missing values in the dataset were handled prior to conducting the correlation analysis.
@@ -253,6 +259,13 @@ HYPOTHESIS 3
 
 ## Unfixed Bugs
 
++ Deployment to Heroku did not work due to the compiled lug size, which was larger than the max permitted (500 M).
+  + Solution: Deployment was peformed using the [Render](https://render.com/) platform instead.
+
+![Failed Deployment to Heroku](documentation/bugs/failed_deployment_heroku.png)
+
+> [!IMPORTANT]
+> There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
 
 ---
 
