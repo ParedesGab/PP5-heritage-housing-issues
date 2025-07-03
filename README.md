@@ -1,8 +1,10 @@
 # The Heritage Housing project
 
+(Developer: Gabriela Fabiola Paredes Rojas)
+
 ![Mockup image](documentation/website-screenshots/1-mockup.png)
 
-### Welcome to the Heritage Housing Issues App! 🏠🏠🏠
+**Welcome to the Heritage Housing Issues App!** 🏠🏠🏠
 
 This project proposes an Machine Learning-powered solution that
 will analyze housing records from Ames, Iowa, to uncover crucial correlations
@@ -15,6 +17,7 @@ through data visualization and a predictive regression model in this region.
 🔶 Predict the value of any other house in the Ames area!
 
 Are you ready to maximize the sales price of your properties?
+
 Let's go! 🚀
 
 + The live page can be accessed via this [link](https://my-finances-tracker-5a1726e2723f.herokuapp.com/)
