@@ -213,29 +213,41 @@ enabling them to optimize sales strategies and maximize value for houses they in
   + Include a "Run predictive analysis" button (st.button) that processes the users’ input through our ML pipeline and predicts the house sale price (in dollars).
 
 ### Page 4: Project Hypothesis and Validation
+
 ![Dashboard Page 4](documentation/screenshots/page4.png)
-- Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
+
++ Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
+  
 HYPOTHESIS 1
+
 + We hypothesize that a property's size is a key driver of its sale with larger homes generally fetching higher sale prices.
- + Correct: Our house sale price correlation study confirms the hypothesis that larger homes generally fetch higher prices and indicated that the variables (house attributes) 1stFlrSF, GarageArea, GrLivArea, and TotalBsmtSF are the most influential variables in their correlation with SalePrice.
+  + Correct: Our house sale price correlation study confirms the hypothesis that larger homes generally fetch higher prices and indicated that the variables (house attributes) 1stFlrSF, GarageArea, GrLivArea, and TotalBsmtSF are the most influential variables in their correlation with SalePrice.
+
 HYPOTHESIS 2
+
 + A recent survey showed that recently remodeled houses are perceived as more valuable.
-+ Correct: Correlation analysis placed YearRemodAdd within the top 10 variables for both Pearson and Spearman correlations with SalePrice. Interestingly, however, YearBuilt exhibited a stronger individual correlation. Nonetheless, the subsequent feature importance analysis from our machine learning pipeline confirmed YearRemodAdd as a significant and influential predictor within the model. These combined results collectively suggest that the survey's observation about the increased perceived value of remodeled houses is likely accurate.
+  + Correct: Correlation analysis placed YearRemodAdd within the top 10 variables for both Pearson and Spearman correlations with SalePrice. Interestingly, however, YearBuilt exhibited a stronger individual correlation. Nonetheless, the subsequent feature importance analysis from our machine learning pipeline confirmed YearRemodAdd as a significant and influential predictor within the model. These combined results collectively suggest that the survey's observation about the increased perceived value of remodeled houses is likely accurate.
+
 HYPOTHESIS 3
+
 + We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house sale prices.
-+ Correct: Correlation studies consistently placed OverallQual within the top 5 variables for both Pearson and Spearman correlations with SalePrice. Furthermore, our machine learning pipeline's feature importance analysis identified OverallQual as the most important predictor among the model's influential features. Therefore, our hypothesis that a higher OverallQual rating directly correlates with increased house sale prices is strongly supported by our analysis and the insights derived from our machine learning model.
+  + Correct: Correlation studies consistently placed OverallQual within the top 5 variables for both Pearson and Spearman correlations with SalePrice. Furthermore, our machine learning pipeline's feature importance analysis identified OverallQual as the most important predictor among the model's influential features. Therefore, our hypothesis that a higher OverallQual rating directly correlates with increased house sale prices is strongly supported by our analysis and the insights derived from our machine learning model.
 
 ### Page 5: Predict SalePrice
-![Dashboard Page 5](documentation/screenshots/page5.png)
-- Considerations and conclusions after the pipeline is trained
-- Present ML pipeline steps
-- Feature importance
-- Pipeline performance
 
+![Dashboard Page 5](documentation/screenshots/page5.png)
+
++ Considerations and conclusions after the pipeline is trained
++ Present ML pipeline steps
++ Feature importance
++ Pipeline performance
+
+---
 
 ## Unfixed Bugs
 
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
+
+---
 
 ## Deployment
 
