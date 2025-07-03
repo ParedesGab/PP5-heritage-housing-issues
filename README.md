@@ -87,7 +87,24 @@ and has the two following business requirements:
 
 ## Hypothesis and how to validate?
 
-* List here your project hypothesis(es) and how you envision validating it (them).
++ **HYPOTHESIS 1:** We hypothesize that a property's size is a key driver of its sale price, with larger homes generally fetching higher sale prices.
+Consequently, we expect to find strong positive correlations between SalePrice and features indicative of house dimensions, 
+such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or WoodDeckSF.
+
+  + A Correlation study can help in this investigation
+
++ **HYPOTHESIS 2:** A recent survey showed that recently remodeled houses are perceived as more valuable.
+
+  + A Correlation study can help in this investigation.
+  + Moreover, machine learning pipeline's feature importance analysis can confirm if YearRemodAdd (remodel date) is identified as a significant predictor among the model's most influential features.
+
++ **HYPOTHESIS 3:** We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house sale prices.
+
+  + A Correlation study can help in this investigation.
+  + Moreover, machine learning pipeline's feature importance analysis can confirm if the attribute **OverallQual**
+	  is identified as a significant predictor among the model's most influential features.
+
+---
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
