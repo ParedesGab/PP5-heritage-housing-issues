@@ -108,11 +108,45 @@ such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, Garag
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
++ **Business Requirement 1:** Data Visualization and Correlation study
+
+  + We will inspect the house records dataset.
+  + We will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to SalePrice.
+  + We will plot the main variables against SalePrice to visualize insights.
+
++ **Business Requirement 2:** Regression and Data Analysis
+
+  + We want to predict the SalePrice of a house from Ames, Iowa.
+  + Given that it will be a continuous numerical value, we want to build a regression model.
+
+---
 
 ## ML Business Case
 
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+### Predict Sale Price (SalePrice)
+
+#### Regression Model
+
++ We want an ML model to predict a house sale price in Ames, Iowa.
++ Given that the target variable is a continous value, we consider a **regression model**, which is supervised and uni-dimensional.
++ Our ideal outcome is to provide our client with reliable insights for accurately predicting property sale prices,
+enabling them to optimize sales strategies and maximize value for houses they intend to sell.
++ The model success metrics are:
+  + At least 0.75 for R2 score, on both, the train and test set.
+
++ The ML model is considered a failure if:
+  + After 6 months of usage, the model's overall explanatory power significantly degrades. For example, if the R-squared
+		(R2) score on newly acquired, unseen data consistently falls below 0.60.
+		This indicates that the model is explaining less than 60% of the variance in actual sale prices,
+		which is a substantial drop from the agreed-upon performance goal of 0.75.
+		
++ The output is defined as a continuous value for SalePrice in dollars. It is assumed that this model will predict a property sale price.
++ The client will gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
++ Heuristics: Currently, there is no established approach to predict house sale prices in Ames, Iowa.
++ The training data to fit the model comes from the Ames, Iowa housing dataset. This dataset contains about 1.5 thousand house records.
+  + Train data - target: SalePrice; features: all other variables, but EnclosedPorch and WoodDeckSF (dropped because they had >80% of missing values).
+
+---
 
 ## Dashboard Design
 
