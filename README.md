@@ -271,18 +271,56 @@ HYPOTHESIS 3
 
 ## Deployment
 
-### Heroku
+### Render
 
-* The App live link is: <https://YOUR_APP_NAME.herokuapp.com/>
-* Set the .python-version Python version to a [Heroku-24](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
++ The App live link is: <https://pp5-heritage-housing-issues-gp.onrender.com>
++ The project was deployed to [Render](https://render.com/) using the following steps:
+  
+  1. Log in to Render with GitHub.
+  2. Click “New +” and then Click “Web Service”.
+  3. Search for relevant repo and click “Connect”.
+  4. Add a project Name. Note, if the name is not unique, a random hash with be appended to the name given.
+  5. Ensure the following settings match:
+     + Root Directory: blank
+     + Language: Python 3
+     + Region: Frankfurt (EU Central)
+     + Branch: main
 
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+  6. Set the Build Command as pip install -r requirements.txt && ./setup.sh
+  7. Set the Set the Start Command as streamlit run app.py
+  8. For this project I selected the Free plan $0/month.
+  9. Scroll down and Click “Add Environment Variable”
+     + Add a Add a key: PORT and a value: 8501
+     + Add a second environment variable with a key: PYTHON_VERSION and value: 3.12.1
+
+  10. Select Auto Deployment: On Commit (so that the site deploys every time a commit is pushed to the GitHub repository).
+  11. Click “Create Web Service”
+  12. Wait for deployment (the deployment took around 8 min to complete)
+  13. Once the deployment is completed a Build successful 🎉message appears
+  14. Open the [deployed site link](https://pp5-heritage-housing-issues-gp.onrender.com) positioned link below the WEB SERVICE name.
+  15. Run the program to check that it all works as expected.
+
+## Local Deployment
+
+### Forking
+
+To have a copy of the project in your repositories:
+
+1. Log in or sign up to GitHub.
+2. Navigate to the [project repository](https://github.com/ParedesGab/PP5-heritage-housing-issues).
+3. In the top right corner, click the "Fork" button.
+4. A new page titled "Create a new fork" will appear. Optionally, you can edit the repository name.
+5. At the bottom of the page, click "Create fork."
+
+### Cloning
+
+1. Log in or sign up to GitHub.
+2. Go to the [project repository](https://github.com/ParedesGab/PP5-heritage-housing-issues).
+3. Click the green button "Code" and choose your preferred cloning method (for example: HTTPS, SSH, or GitHub CLI) and copy the provided url.
+4. Open the terminal in your preferred code editor and change the current working directory to the one where you want the cloned directory
+5. Run git clone in the terminal, paste the copied link, and press Enter.
+
+---
 
 ## Main Data Analysis and Machine Learning Libraries
 
