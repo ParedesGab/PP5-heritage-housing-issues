@@ -31,6 +31,14 @@ def page_predict_house_sale_price_body():
     )
     with st.expander("ℹ️ Visualize the most influential attributes of your \
                      inherited houses alongside their predicted sale prices."):
+        
+        st.info(f"* The most influential attributes correspond to the house "
+                f"attributes OverallQual, GarageArea, TotalBsmtSF, and "
+                f"YearRemodAdd. \n"
+               f"* These specific attributes were identified by the machine "
+               f"learning regression model as the most influential or "
+               f"**best features** for predicting house prices.\n")
+
         sale_price_inh_houses = predict_saleprice(
         inherited_houses, best_features, saleprice_pipe)
 
