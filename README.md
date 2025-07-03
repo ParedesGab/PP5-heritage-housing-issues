@@ -4,13 +4,18 @@
 
 ### Welcome to the Heritage Housing Issues App! 🏠🏠🏠
 
-    This application collects information about 2025
-    income and expenses to provide insights into the financial landscape of your community!
+This project proposes an Machine Learning-powered solution that
+will analyze housing records from Ames, Iowa, to uncover crucial correlations
+through data visualization and a predictive regression model in this region.
 
-    Your participation will remain anonymous.
-    Thank you for contributing to a better understanding of personal finances!
+🔶 Discover which house attributes most significantly influence sale prices!
 
-    Let's get started! 🚀 
+🔶 Visualize the total value of your 4 inherited houses!
+
+🔶 Predict the value of any other house in the Ames area!
+
+Are you ready to maximize the sales price of your properties?
+Let's go! 🚀
 
 + The live page can be accessed via this [link](https://my-finances-tracker-5a1726e2723f.herokuapp.com/)
 
