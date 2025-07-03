@@ -58,14 +58,32 @@ Let's go! 🚀
 |YearRemodAdd|Remodel date (same as construction date if no remodelling or additions)|1950 - 2010|integer|
 |SalePrice|Sale Price|34900 - 755000|integer|
 
+---
+
+## Project Terms & Jargon
+
++ A **house** refers to an individual residential unit in Ames, Iowa.
++ A **house attribute** is a characteristic of the house, such as Floor Area, Year Built or Kitchen Quality.
++ The **Sale Price** is the actual selling price of a property, and our model is built to predict this value for houses intended to be sold.
++ An **inherited property** refers to one of the 4 inherited houses for which the client requires a sale price prediction.
+
+---
+
 ## Business Requirements
 
-As a good friend, you are requested by your friend, who has received an inheritance from a deceased great-grandfather located in Ames, Iowa, to  help in maximising the sales price for the inherited properties.
+A dear friend has inherited properties in Ames, Iowa, and has turned to you for assistance
+in achieving the best possible sale prices. She's a savvy real estate observer in her own area,
+but she's keenly aware that what makes a home valuable there might be entirely different in Ames.
 
-Although your friend has an excellent understanding of property prices in her own state and residential area, she fears that basing her estimates for property worth on her current knowledge might lead to inaccurate appraisals. What makes a house desirable and valuable where she comes from might not be the same in Ames, Iowa. She found a public dataset with house prices for Ames, Iowa, and will provide you with that.
+To guide your efforts, she has provided you with a public dataset detailing house prices in that specific Iowa market,
+and has the two following business requirements:
 
-* 1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
-* 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
+    1 - The client is interested in discovering how the house attributes correlate with the sale price.
+	Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
+
+    2 - The client is interested in predicting the house sale price from her four inherited houses.
+
+---
 
 ## Hypothesis and how to validate?
 
