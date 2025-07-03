@@ -52,7 +52,7 @@ def page_house_sales_price_study_body():
     st.write("")
 
     # Text based on "2-HouseSalesPriceStudy" notebook:
-    # Conclusions and Next steps" section
+    # Conclusions" section
     st.success(
         f"**CONCLUSIONS**\n\n"
         f"The correlation analysis indicates that:\n"

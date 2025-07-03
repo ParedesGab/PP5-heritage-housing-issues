@@ -29,8 +29,8 @@ def page_predict_house_sale_price_body():
         f"from her 4 inherited houses so, that the client can maximize the "
         f"sales price for her inherited properties.\n"
     )
-    with st.expander("ℹ️ Visualize the 4 inherited Houses attributes, and" \
-    "predict sales price"):
+    with st.expander("ℹ️ Visualize the most influential attributes of your \
+                     inherited houses alongside their predicted sale prices."):
         sale_price_inh_houses = predict_saleprice(
         inherited_houses, best_features, saleprice_pipe)
 

@@ -10,9 +10,9 @@ This project proposes an Machine Learning-powered solution that
 will analyze housing records from Ames, Iowa, to uncover crucial correlations
 through data visualization and a predictive regression model in this region.
 
-    🔸 Discover which house attributes most significantly influence sale prices!
+    🔸 Discover which house attributes most significantly influence Sale Prices!
 
-    🔸 Visualize the total value of your 4 inherited houses!
+    🔸 Discover the total value of your 4 inherited houses!
 
     🔸 Predict the value of any other house in the Ames area!
 
@@ -20,7 +20,7 @@ Are you ready to maximize the sales price of your properties?
 
 Let's go! 🚀
 
-+ The live page can be accessed via this [Heroku link.](https://my-finances-tracker-5a1726e2723f.herokuapp.com/)
++ The live page can be accessed via this [Render link.](https://pp5-heritage-housing-issues-gp.onrender.com/)
 
 ---
 
@@ -64,30 +64,31 @@ Let's go! 🚀
 
 + A **house** refers to an individual residential unit in Ames, Iowa.
 + A **house attribute** is a characteristic of the house, such as Floor Area, Year Built or Kitchen Quality.
-+ The **Sale Price** is the actual selling price of a property, and our model is built to predict this value for houses intended to be sold.
-+ An **inherited property** refers to one of the 4 inherited houses for which the client requires a sale price prediction.
++ The **SalePrice** is the actual selling price of a property, and our model is built to predict this target value for houses intended to be sold.
+  + Throughout this README, a house selling price will be referred to as the target attribute SalePrice.
++ An **inherited property** refers to one of the 4 inherited houses for which the client requires a SalePrice prediction.
 
 ---
 
 ## Business Requirements
 
 A dear friend has inherited properties in Ames, Iowa, and has turned to you for assistance
-in achieving the best possible sale prices. She's a savvy real estate observer in her own area,
+in achieving the best possible SalePrices. She's a savvy real estate observer in her own area,
 but she's keenly aware that what makes a home valuable there might be entirely different in Ames.
 
 To guide your efforts, she has provided you with a public dataset detailing house prices in that specific Iowa market,
 and has the two following business requirements:
 
-    1 - The client is interested in discovering how the house attributes correlate with the sale price.
-	Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
+    1 - The client is interested in discovering how the house attributes correlate with the SalePrice.
+	Therefore, the client expects data visualisations of the correlated variables against the SalePrice to show that.
 
-    2 - The client is interested in predicting the house sale price from her four inherited houses.
+    2 - The client is interested in predicting the house SalePrice from her four inherited houses.
 
 ---
 
 ## Hypothesis and how to validate?
 
-+ **HYPOTHESIS 1:** We hypothesize that a property's size is a key driver of its sale price, with larger homes generally fetching higher sale prices.
++ **HYPOTHESIS 1:** We hypothesize that a property's size is a key driver of its SalePrice, with larger homes generally fetching higher SalePrices.
 Consequently, we expect to find strong positive correlations between SalePrice and features indicative of house dimensions, 
 such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or WoodDeckSF.
 
@@ -98,7 +99,7 @@ such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, Garag
   + A Correlation study can help in this investigation.
   + Moreover, machine learning pipeline's feature importance analysis can confirm if YearRemodAdd (remodel date) is identified as a significant predictor among the model's most influential features.
 
-+ **HYPOTHESIS 3:** We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house sale prices.
++ **HYPOTHESIS 3:** We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house SalePrices.
 
   + A Correlation study can help in this investigation.
   + Moreover, machine learning pipeline's feature importance analysis can confirm if the attribute **OverallQual**
@@ -123,13 +124,13 @@ such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, Garag
 
 ## ML Business Case
 
-### Predict Sale Price (SalePrice)
+### Predict SalePrice (SalePrice)
 
 #### Regression Model
 
-+ We want an ML model to predict a house sale price in Ames, Iowa.
++ We want an ML model to predict a house SalePrice in Ames, Iowa.
 + Given that the target variable is a continous value, we consider a **regression model**, which is supervised and uni-dimensional.
-+ Our ideal outcome is to provide our client with reliable insights for accurately predicting property sale prices,
++ Our ideal outcome is to provide our client with reliable insights for accurately predicting property SalePrices,
 enabling them to optimize sales strategies and maximize value for houses they intend to sell.
 + The model success metrics are:
   + At least 0.75 for R2 score, on both, the train and test set.
@@ -137,12 +138,12 @@ enabling them to optimize sales strategies and maximize value for houses they in
 + The ML model is considered a failure if:
   + After 6 months of usage, the model's overall explanatory power significantly degrades. For example, if the R-squared
 		(R2) score on newly acquired, unseen data consistently falls below 0.60.
-		This indicates that the model is explaining less than 60% of the variance in actual sale prices,
+		This indicates that the model is explaining less than 60% of the variance in actual SalePrices,
 		which is a substantial drop from the agreed-upon performance goal of 0.75.
 		
-+ The output is defined as a continuous value for SalePrice in dollars. It is assumed that this model will predict a property sale price.
++ The output is defined as a continuous value for SalePrice in dollars. It is assumed that this model will predict a property SalePrice.
 + The client will gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-+ Heuristics: Currently, there is no established approach to predict house sale prices in Ames, Iowa.
++ Heuristics: Currently, there is no established approach to predict house SalePrices in Ames, Iowa.
 + The training data to fit the model comes from the Ames, Iowa housing dataset. This dataset contains about 1.5 thousand house records.
   + Train data - target: SalePrice; features: all other variables, but EnclosedPorch and WoodDeckSF (dropped because they had >80% of missing values).
 
@@ -177,9 +178,9 @@ enabling them to optimize sales strategies and maximize value for houses they in
     + Display the first ten rows of the dataset.
     + Display a note below the table, informing the user about the presence of missing values and direct them to revisit this section for details on how they were handled.
 
-  + Contain  an introduction to the **Correlation Study** that displays the most correlated variables to Sale Price.
+  + Contain  an introduction to the **Correlation Study** that displays the most correlated variables to SalePrice.
   + Contain a summary of its **conclusions**.
-  + Include a checkbox to display individual scatter plots, visualizing Sale Price levels against each of the most correlated variables. Scatter plots were selected as the appropriate visualization method because SalePrice and all identified 'most correlated variables' (1stFlrSF, GarageArea, GrLivArea, TotalBsmtSF, YearRemodAdd) can be considered continuous numerical variables, making them the most informative choice for illustrating these relationships (Figures below – Scatter Plots).
+  + Include a checkbox to display individual scatter plots, visualizing SalePrice levels against each of the most correlated variables. Scatter plots were selected as the appropriate visualization method because SalePrice and all identified 'most correlated variables' (1stFlrSF, GarageArea, GrLivArea, TotalBsmtSF, YearRemodAdd) can be considered continuous numerical variables, making them the most informative choice for illustrating these relationships (Figures below – Scatter Plots).
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
@@ -187,7 +188,7 @@ enabling them to optimize sales strategies and maximize value for houses they in
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
 
-+ Include a Parallel coordinates plot featuring Sale Price and its correlated variables. This visualization offers a holistic understanding of how these key variables interact with Sale Price (Figure below – Parallel plot).
++ Include a Parallel coordinates plot featuring SalePrice and its correlated variables. This visualization offers a holistic understanding of how these key variables interact with SalePrice (Figure below – Parallel plot).
 ![Parallel plot](documentation/screenshots/parallelplot.png)
 
 > [!NOTE]
@@ -197,7 +198,7 @@ enabling them to optimize sales strategies and maximize value for houses they in
 >
 > For **Numerical variables (Floats and Integers):** Given their non-normal distributions, missing values were imputed using the median of each respective variable."
 
-### Page 3: House Sale Price Predictor
+### Page 3: House SalePrice Predictor
 
 ![Dashboard Page 3](documentation/screenshots/page3.png)
 
@@ -206,11 +207,11 @@ enabling them to optimize sales strategies and maximize value for houses they in
 
   + State the page’s title.
   + State **business requirement 2**.
-  + Include a collapsible box (st.expander) showcasing the most influential attributes (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) for the client's inherited houses, alongside their predicted sale prices. These attributes were specifically identified by the machine learning regression model as the most impactful features (best features) for price prediction.
+  + Include a collapsible box (st.expander) showcasing the most influential attributes (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) for the client's inherited houses, alongside their predicted SalePrices. These attributes were specifically identified by the machine learning regression model as the most impactful features (best features) for price prediction.
 
   + Contain a section that shows the summed predicted value (in dollars) of the four inherited properties.
   + Include a section enabling users to predict themselves the SalePrice for any house in Ames, Iowa. The prediction widgets correspond to the most influential features (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) identified by the machine learning model for predicting prospective SalePrice.
-  + Include a "Run predictive analysis" button (st.button) that processes the users’ input through our ML pipeline and predicts the house sale price (in dollars).
+  + Include a "Run predictive analysis" button (st.button) that processes the users’ input through our ML pipeline and predicts the house SalePrice (in dollars).
 
 ### Page 4: Project Hypothesis and Validation
 
@@ -220,8 +221,8 @@ enabling them to optimize sales strategies and maximize value for houses they in
   
 HYPOTHESIS 1
 
-+ We hypothesize that a property's size is a key driver of its sale with larger homes generally fetching higher sale prices.
-  + Correct: Our house sale price correlation study confirms the hypothesis that larger homes generally fetch higher prices and indicated that the variables (house attributes) 1stFlrSF, GarageArea, GrLivArea, and TotalBsmtSF are the most influential variables in their correlation with SalePrice.
++ We hypothesize that a property's size is a key driver of its sale with larger homes generally fetching higher SalePrices.
+  + Correct: Our house SalePrice correlation study confirms the hypothesis that larger homes generally fetch higher prices and indicated that the variables (house attributes) 1stFlrSF, GarageArea, GrLivArea, and TotalBsmtSF are the most influential variables in their correlation with SalePrice.
 
 HYPOTHESIS 2
 
@@ -230,8 +231,8 @@ HYPOTHESIS 2
 
 HYPOTHESIS 3
 
-+ We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house sale prices.
-  + Correct: Correlation studies consistently placed OverallQual within the top 5 variables for both Pearson and Spearman correlations with SalePrice. Furthermore, our machine learning pipeline's feature importance analysis identified OverallQual as the most important predictor among the model's influential features. Therefore, our hypothesis that a higher OverallQual rating directly correlates with increased house sale prices is strongly supported by our analysis and the insights derived from our machine learning model.
++ We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house SalePrices.
+  + Correct: Correlation studies consistently placed OverallQual within the top 5 variables for both Pearson and Spearman correlations with SalePrice. Furthermore, our machine learning pipeline's feature importance analysis identified OverallQual as the most important predictor among the model's influential features. Therefore, our hypothesis that a higher OverallQual rating directly correlates with increased house SalePrices is strongly supported by our analysis and the insights derived from our machine learning model.
 
 ### Page 5: Predict SalePrice
 
