@@ -148,10 +148,90 @@ enabling them to optimize sales strategies and maximize value for houses they in
 
 ---
 
-## Dashboard Design
+## Dashboard Design (Streamlit App User Interface)
 
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
-* Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
++ Pages style: To enhance visual engagement and break monotony, an alternating green and blue color scheme has been applied to informational text blocks (utilizing st.success and st.info,). This color style is maintained consistently across all application pages.
+
+### Page 1: Project summary
+
+![Dashboard Page 1](documentation/screenshots/page1.png)
+
++ Project summary
++ Project Terms & Jargon
++ Describe Project Dataset
++ State Business Requirements
++ Link to ReadMe file in case User wants to see the full documentation
+
+### Page 2: House Sales Price Study
+
+![Dashboard Page 2](documentation/screenshots/page2.png)
+
++ This page answers business requirement 1, but we couldn't know in advance which plots would need to be displayed.
++ Thus, after data analysis, we agreed with stakeholders that the page will:
+
+  + State the page’s title.
+  + State **business requirement 1**.
+  + Include a **checkbox** allowing users to inspect the House Records Dataset . Toggling this option will:
+
+    + Display the dataset’s dimensions (number of rows and columns in the data).
+    + Display the first ten rows of the dataset.
+    + Display a note below the table, informing the user about the presence of missing values and direct them to revisit this section for details on how they were handled.
+
+  + Contain  an introduction to the **Correlation Study** that displays the most correlated variables to Sale Price.
+  + Contain a summary of its **conclusions**.
+  + Include a checkbox to display individual scatter plots, visualizing Sale Price levels against each of the most correlated variables. Scatter plots were selected as the appropriate visualization method because SalePrice and all identified 'most correlated variables' (1stFlrSF, GarageArea, GrLivArea, TotalBsmtSF, YearRemodAdd) can be considered continuous numerical variables, making them the most informative choice for illustrating these relationships (Figures below – Scatter Plots).
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+
++ Include a Parallel coordinates plot featuring Sale Price and its correlated variables. This visualization offers a holistic understanding of how these key variables interact with Sale Price (Figure below – Parallel plot).
+![Parallel plot](documentation/screenshots/parallelplot.png)
+
+> [!NOTE]
+> While not displayed on this page, it's important to note that missing values in the dataset were handled prior to conducting the correlation analysis.
+>
+> For **categorical variables (Objects)**: Missing entries were imputed with the label 'Missing', and this new 'Missing' category was included in subsequent evaluations.
+>
+> For **Numerical variables (Floats and Integers):** Given their non-normal distributions, missing values were imputed using the median of each respective variable."
+
+### Page 3: House Sale Price Predictor
+
+![Dashboard Page 3](documentation/screenshots/page3.png)
+
++ This page answers business requirement 2.
++ After creating and evaluating the ML model, we agreed with stakeholders that the page will:
+
+  + State the page’s title.
+  + State **business requirement 2**.
+  + Include a collapsible box (st.expander) showcasing the most influential attributes (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) for the client's inherited houses, alongside their predicted sale prices. These attributes were specifically identified by the machine learning regression model as the most impactful features (best features) for price prediction.
+
+  + Contain a section that shows the summed predicted value (in dollars) of the four inherited properties.
+  + Include a section enabling users to predict themselves the SalePrice for any house in Ames, Iowa. The prediction widgets correspond to the most influential features (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) identified by the machine learning model for predicting prospective SalePrice.
+  + Include a "Run predictive analysis" button (st.button) that processes the users’ input through our ML pipeline and predicts the house sale price (in dollars).
+
+### Page 4: Project Hypothesis and Validation
+![Dashboard Page 4](documentation/screenshots/page4.png)
+- Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
+HYPOTHESIS 1
++ We hypothesize that a property's size is a key driver of its sale with larger homes generally fetching higher sale prices.
+ + Correct: Our house sale price correlation study confirms the hypothesis that larger homes generally fetch higher prices and indicated that the variables (house attributes) 1stFlrSF, GarageArea, GrLivArea, and TotalBsmtSF are the most influential variables in their correlation with SalePrice.
+HYPOTHESIS 2
++ A recent survey showed that recently remodeled houses are perceived as more valuable.
++ Correct: Correlation analysis placed YearRemodAdd within the top 10 variables for both Pearson and Spearman correlations with SalePrice. Interestingly, however, YearBuilt exhibited a stronger individual correlation. Nonetheless, the subsequent feature importance analysis from our machine learning pipeline confirmed YearRemodAdd as a significant and influential predictor within the model. These combined results collectively suggest that the survey's observation about the increased perceived value of remodeled houses is likely accurate.
+HYPOTHESIS 3
++ We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house sale prices.
++ Correct: Correlation studies consistently placed OverallQual within the top 5 variables for both Pearson and Spearman correlations with SalePrice. Furthermore, our machine learning pipeline's feature importance analysis identified OverallQual as the most important predictor among the model's influential features. Therefore, our hypothesis that a higher OverallQual rating directly correlates with increased house sale prices is strongly supported by our analysis and the insights derived from our machine learning model.
+
+### Page 5: Predict SalePrice
+![Dashboard Page 5](documentation/screenshots/page5.png)
+- Considerations and conclusions after the pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline performance
+
 
 ## Unfixed Bugs
 
