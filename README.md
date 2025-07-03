@@ -2,7 +2,7 @@
 
 (Developer: Gabriela Fabiola Paredes Rojas)
 
-![Mockup image](documentation/website-screenshots/1-mockup.png)
+![Mockup image](documentation/screenshots/mockup.png)
 
 **Welcome to the Heritage Housing Issues App!**
 
@@ -89,7 +89,7 @@ and has the two following business requirements:
 ## Hypothesis and how to validate?
 
 + **HYPOTHESIS 1:** We hypothesize that a property's size is a key driver of its SalePrice, with larger homes generally fetching higher SalePrices.
-Consequently, we expect to find strong positive correlations between SalePrice and features indicative of house dimensions, 
+Consequently, we expect to find strong positive correlations between SalePrice and features indicative of house dimensions,
 such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or WoodDeckSF.
 
   + A Correlation study can help in this investigation
@@ -181,11 +181,17 @@ enabling them to optimize sales strategies and maximize value for houses they in
   + Contain  an introduction to the **Correlation Study** that displays the most correlated variables to SalePrice.
   + Contain a summary of its **conclusions**.
   + Include a checkbox to display individual scatter plots, visualizing SalePrice levels against each of the most correlated variables. Scatter plots were selected as the appropriate visualization method because SalePrice and all identified 'most correlated variables' (1stFlrSF, GarageArea, GrLivArea, TotalBsmtSF, YearRemodAdd) can be considered continuous numerical variables, making them the most informative choice for illustrating these relationships (Figures below – Scatter Plots).
+  
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
+
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot_saleprice_vs_.png)
 
 + Include a Parallel coordinates plot featuring SalePrice and its correlated variables. This visualization offers a holistic understanding of how these key variables interact with SalePrice (Figure below – Parallel plot).
