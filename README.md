@@ -193,6 +193,8 @@ For a more detailed description, please revise Jupyter notebook: 2-HouseSalesPri
 
 + As a **data analyst/data scientist**, I want to **create a single, comprehensive visualization that simultaneously displays how the most correlated features interact with the target SalePrice**, so that I can **gain a holistic understanding of their collective influence on house sale prices.**
 
+  + CHANGE Fullfillment of Business Requirement 1: With an R2 score of 0.959 on the training set and a robust 0.778 on the test set, our regression model has successfully met the defined performance criteria. This enables us to confidently state that the model accurately predicts house sale prices in Ames, Iowa, fulfilling Business Requirement 2.
+
 ### **Epic 3:** Data Preparation - Data cleaning
 
 For a more detailed description, please revise Jupyter notebook: 3-DataCleaning.ipynb
@@ -217,6 +219,18 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
 
 + As a **data analyst/data scientist**, I want to ** build an end-to-end Machine Learning regressor pipeline that systematically includes steps for Data Cleaning, Feature Engineering, Feature Scaling, and Feature Selection, followed by the evaluation of various Machine Learning algorithms to identify the optimal model for the given dataset.
 
++ The regression algorithms evalualed included:
+  
+  + LinearRegression': LinearRegression()
+  + DecisionTreeRegressor": DecisionTreeRegressor(random_state=0)
+  + RandomForestRegressor": RandomForestRegressor(random_state=0)
+  + ExtraTreesRegressor": ExtraTreesRegressor(random_state=0)
+  + AdaBoostRegressor": AdaBoostRegressor(random_state=0)
+  + GradientBoostingRegressor": GradientBoostingRegressor(random_state=0)
+  + GBRegressor": XGBRegressor(random_state=0)
+  
++ Random_state=0 was used for reproducibility.
+
 #### User Story: Split Data into Training and Test sets
 
 + As a **data analyst/data scientist**, I want to **split the dataset into training (X_train, y_train) and testing (X_test, y_test) sets** so that **the data is properly prepared for model training and evaluation.**
@@ -231,7 +245,27 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
 
 + As a **data Analyst/data scientist**, I want to **utilize GridSearchCV to perform an extensive hyperparameter search, fitting and evaluating the two most suitable algorithms on my training data (GradientBoostingRegressor and ExtraTreesRegressor), so that **the optimal hyperparameter configuration for each model is identified.**
 
-  + "ExtraTreesRegressor" was identified as the best-performing algorithm, achieving optimal results with the following hyperparameter configuration
+![Most suitable algorithms](documentation/model_evaluation_screenshots/the_two_most_suitable_algorithms.png)
+
++ The reason behind this choice of hyperparameters was:
+
+  GradientBoostingRegressor:
+  + model__n_estimators: Number of boosting stages/trees; more trees generally improve performance but increase computation and risk overfitting.
+  + model__learning_rate: Controls each tree's contribution; a smaller rate requires more estimators but makes the model more robust to overfitting.
+  + model__max_depth: Maximum depth of individual trees; limits complexity to prevent overfitting and ensure weak learners.
+  + model__min_samples_split: Minimum samples required to split a node; higher values prevent over-specialization and reduce overfitting.
+  + model__min_samples_leaf: Minimum samples required at a leaf node; higher values smooth the model and reduce overfitting.
+  + model__max_leaf_nodes: Limits the maximum number of terminal nodes; controls tree complexity as an alternative to max_depth.
+
+  ExtraTreesRegressor:
+  + model__n_estimators: Number of trees in the ensemble; more trees reduce variance and improve robustness through averaging.
+  + model__max_depth: Maximum depth of individual trees; limits complexity, preventing individual trees from overfitting too much.
+  + model__min_samples_split: Minimum samples required to split a node; higher values constrain the tree, reducing overfitting.
+  + model__min_samples_leaf: Minimum samples required at a leaf node; higher values smooth the model and reduce overfitting.
+  + model__max_features: Number of features to consider for best split; introduces randomness to decorrelate trees and reduce variance.
+  + model__bootstrap: Whether bootstrap samples are used; adds randomness to tree building to reduce variance.
+
++ "ExtraTreesRegressor" was identified as the best-performing algorithm, achieving optimal results with the following hyperparameter configuration
     {'model__bootstrap': True,
     'model__max_depth': 15,
     'model__max_features': 'sqrt',
@@ -280,6 +314,8 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
     + Mean Absolute Error: 24805.924
     + Mean Squared Error: 1532760742.768
     + Root Mean Squared Error: 39150.488
+  
+  + Fullfillment of Business Requirement 2: With an R2 score of 0.959 on the training set and a robust 0.778 on the test set, our regression model has successfully met the defined performance criteria. This enables us to confidently state that the model accurately predicts house sale prices in Ames, Iowa, fulfilling Business Requirement 2.
 
 ### **Epic 6:**  Dashboard planning, designing, and development
 
@@ -406,6 +442,15 @@ HYPOTHESIS 3
 + Present ML pipeline steps
 + Feature importance
 + Pipeline performance
+
+---
+
+## CRISP-DM Methodology
+
+This project adhered to the Cross-Industry Standard Process for Data Mining (CRISP-DM) methodology throughout all its phases from Business Understanding to Deployment. This well-established framework provided a structured and iterative roadmap, crucial for the successful development of this machine learning-based system.
+The detailed procedures documented below from Data Understanding to evaluation can be found in the [Jupyter notebooks](https://github.com/ParedesGab/PP5-heritage-housing-issues/tree/main/jupyter_notebooks)
+
+The adoption of the CRISP-DM framework provided a structured, systematic, and iterative approach crucial for developing this robust system. This methodology was instrumental in enabling data-driven decision-making, ensuring scalability and continuous improvement, and ultimately establishing a highly valuable and adaptable solution for large-scale farm management.
 
 ---
 
