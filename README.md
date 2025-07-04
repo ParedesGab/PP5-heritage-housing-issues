@@ -604,24 +604,31 @@ transformation (as vt) vt.YeoJohnsonTransformer: A feature_engine transformer th
 ## Credits
 
 ### Code
-This project used the fictious dataset housing_prices_data created by Code Institue and sourced from Kaggle. 
-The Jupyter notebooks and application pages incorporate logic and code significantly influenced by the Code Institute 'Churnometer' walkthrough. However, I carefully revised and adapted these elements for this project, applying analytical thinking to determine each step.
-The following functions from the Churnometer project were utilized in my project EvaluateMissingData function; DisplayCorrAndPPS; CalculateCorrAndPPS; heatmap_pps; heatmap_corr; DataCleaningEffect; plot_histogram_and_boxplot; FeatureEngineeringAnalysis; check_user_entry_on_analysis_type; check_missing_values; define_list_column_transformers; apply_transformers; DiagnosticPlots_Categories; DiagnosticPlots_Numerical; FeatEngineering_CategoricalEncoder; FeatEngineering_OutlierWinsorizer; FeatEngineering_Numerical.
-Any modifications made to the Code Institute functions are specified in the respective notebook.
-The choice of hyperparameters for ExtraTreesRegressor and GradientBoostingRegressor relied heavily on the official Scikit-learn documentation ([links provided]) and relevant Code Institute study materials.
-https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html, 
-https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html
+
++ This project used the fictious dataset [Housing Prices Data](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data), created by [Code Institute](https://codeinstitute.net/global/), and sourced from [Kaggle](https://www.kaggle.com/).
+
++ The Jupyter notebooks and application pages incorporate logic and code significantly influenced by the Code Institute [Churnometer walkthrough project](https://github.com/Code-Institute-Solutions/churnometer). However, I carefully revised and adapted were necessary the code for this project, applying analytical thinking to determine each step.
+
++ The following functions from the [Churnometer project](https://github.com/Code-Institute-Solutions/churnometer) were utilized in my project:
+  + EvaluateMissingData function; DisplayCorrAndPPS; CalculateCorrAndPPS; heatmap_pps; heatmap_corr; DataCleaningEffect; plot_histogram_and_boxplot; FeatureEngineeringAnalysis; check_user_entry_on_analysis_type; check_missing_values; define_list_column_transformers; apply_transformers; DiagnosticPlots_Categories; DiagnosticPlots_Numerical; FeatEngineering_CategoricalEncoder; FeatEngineering_OutlierWinsorizer; FeatEngineering_Numerical.
+
+  + Please note, that any modifications made to the Code Institute functions are specified in the respective notebook.
+  
++ The choice of hyperparameters for ExtraTreesRegressor and GradientBoostingRegressor relied heavily on the official Scikit-learn documentation (links provided below) and relevant [Code Institute](https://codeinstitute.net/global/) study materials.
+
+  + [GradientBoostingRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html)
+  + [ExtraTreesRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html)
 
 ### Images
-All images in the ReadMe are screenshots directly from my live project application.
 
++ All images in the ReadMe are screenshots directly from my live project application or the Jupyter notebooks.
 
-## Acknowledgements (optional)
+## Acknowledgements
 
 + Thank you very much to my cohort Kay Welfare for the important tips!
 
 + Than you the Code Institute Tutor Team for showing me the guidelines to deploy in Render.
 
-+ To my family, especially my husband Johannes, my parents Hilder and Marcela and my siblings Brando and Sandra: thank you for all your support and cheering on this project. It means the world.
++ To my family, especially my husband Johannes, my parents Hildebrando and Marcela and my siblings Brando and Sandra: thank you for all your support and cheering on this project. It means the world.
 
-+ This project marks the fifth and final Portfolio Project of my journey with Code Institute. I want to extend my sincere thanks to Code Institute for providing comprehensive and foundational learning materials, instrumental in developing this predictive analytics application. My gratitude also goes out to all the Code Institute members who were incredibly supportive throughout this journey. It was a truly fantastic experience; you've done an outstanding job teaching and dissecting complex topics, making this learning journey both fun and memorable!
++ This project marks the fifth and final Portfolio Project of my journey with Code Institute. I want to extend my sincere gratitude to Code Institute for providing comprehensive and foundational learning materials, instrumental in developing this predictive analytics application and my other 4 projects within my Portfolio. My gratitude also goes out to all the Code Institute members who were incredibly supportive throughout this journey. It was a truly fantastic experience; you've done an outstanding job teaching and dissecting complex topics, making this learning journey both fun and memorable!
