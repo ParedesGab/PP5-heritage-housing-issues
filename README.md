@@ -240,12 +240,13 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
 + As a **data analyst/data scientist**, I want to **utilize GridSearchCV to fit and evaluate different machine learning algorithms (with their default parameters) on my Training data**  sot that ** the two best-performing algorithms, based on its cross-validated (CV) performance, are identified.
 
   + The two best-performing algorithms (highest CV mean_score) were GradientBoostingRegressor and ExtraTreesRegressor.
+![Two best-performing algorithms](documentation/model_evaluation_screenshots/algorithms_performance_after_cv.png)
 
 ####	User Story: Perform an extensive search on the most suitable algorithms to find the best hyperparameter configuration
 
 + As a **data Analyst/data scientist**, I want to **utilize GridSearchCV to perform an extensive hyperparameter search, fitting and evaluating the two most suitable algorithms on my training data (GradientBoostingRegressor and ExtraTreesRegressor), so that **the optimal hyperparameter configuration for each model is identified.**
 
-![Most suitable algorithms](documentation/model_evaluation_screenshots/the_two_most_suitable_algorithms.png)
+![Most suitable algorithms with hyperparameters](documentation/model_evaluation_screenshots/the_two_most_suitable_algorithms.png)
 
 + The reason behind this choice of hyperparameters was:
 
@@ -265,13 +266,18 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
   + model__max_features: Number of features to consider for best split; introduces randomness to decorrelate trees and reduce variance.
   + model__bootstrap: Whether bootstrap samples are used; adds randomness to tree building to reduce variance.
 
-+ "ExtraTreesRegressor" was identified as the best-performing algorithm, achieving optimal results with the following hyperparameter configuration
-    {'model__bootstrap': True,
-    'model__max_depth': 15,
-    'model__max_features': 'sqrt',
-    'model__min_samples_leaf': 1,
-    'model__min_samples_split': 2,
-    'model__n_estimators': 100}
++ "ExtraTreesRegressor" was identified as the best-performing algorithm (Figure below)
+
+![Best model](documentation/model_evaluation_screenshots/best_model.png)
+
++ It achieved optimal results with the following hyperparameter configuration:
+
+  + 'model__bootstrap': True
+  + 'model__max_depth': 15
+  + 'model__max_features': 'sqrt'
+  + 'model__min_samples_leaf': 1
+  + 'model__min_samples_split': 2
+  + 'model__n_estimators': 100
 
 #### User Story: Evaluate the ML Model Performance on the Train and Test Sets
 
@@ -297,6 +303,8 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
 
   + The 4 most important features in descending order were:'OverallQual, GarageArea, TotalBsmtSF and YearRemodAdd (Figure below).
 
+  ![Best features](documentation/model_evaluation_screenshots/model_best_features.png)
+  
 #### User Story: Refit the pipeline with best features
 
 + As a **data Analyst/data scientist**, I want to **refit the pipeline with the 4 identified best features,** so that **I can evaluate if the model's performance has improved.**
@@ -519,9 +527,63 @@ To have a copy of the project in your repositories:
 
 ---
 
-## Main Data Analysis and Machine Learning Libraries
+## Languages, Modules and Libraries and Other Technologies Used
 
-* Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+### Languages
+
++ Python: A popular, high-level programming language used for web development, data analysis, AI, and machine learning models.
+
+### Modules
+
++ os: A built-in Python module that provides a portable way of interacting with the operating system.
+
+### Libraries
+
++ Pandas: A powerful Python library for data manipulation and analysis.
++ NumPy: A fundamental Python library for numerical computing, especially with arrays.
++ ydata-profiling: A Python library for automated exploratory data analysis.
++ ProfileReport: A class from ydata-profiling that generates comprehensive data profiles.
++ feature_engine: A Python library for advanced feature engineering and preprocessing.
++ CategoricalImputer: A feature_engine transformer that imputes missing values in + categorical features.
++ MeanMedianImputer: A feature_engine transformer that imputes missing numerical values with the mean or median.
++ OneHotEncoder: A feature_engine transformer that converts categorical features into one-hot encoded numerical arrays.
++ DropFeatures: A feature_engine transformer that drops specified features from a dataset.
+transformation (as vt) vt.YeoJohnsonTransformer: A feature_engine transformer that applies the Yeo-Johnson power transformation to numerical features.
++ Winsorizer: A feature_engine transformer that caps outliers at a specified maximum or minimum value.
++ OrdinalEncoder: A feature_engine transformer that encodes categorical features as ordinal integers.
++ SmartCorrelatedSelection: A feature_engine transformer that selects features based on their correlation.
++ pingouin: A Python library for statistical analysis.
++ Seaborn: A Python library for statistical data visualization, built on Matplotlib.
++ Matplotlib: A comprehensive Python library for creating static, animated, and interactive visualizations.
++ Matplotlib.pyplot: A collection of command-style functions in Matplotlib that make it work like MATLAB.
++ Plotly.express: A high-level API for creating interactive plots with Plotly.
++ ppscore: A Python library that calculates the Predictive Power Score (PPS) between two columns.
++ warnings: A built-in Python module for warning control.
++ sklearn.model_selection: A scikit-learn module providing tools for splitting data, cross-validation, and hyperparameter tuning.
++ SciKit-Learn: A comprehensive Python library for machine learning modelling, including splitting, scaling, training, and more.
++ scipy.stats: A SciPy module containing a large number of probability distributions and statistical functions.
++ sklearn: (See SciKit-Learn) A powerful Python library for machine learning.
++ Pipeline (from sklearn): A scikit-learn utility that chains multiple processing steps into a single estimator.
++ StandardScaler (from sklearn): A scikit-learn preprocessor that standardizes features by removing the mean and scaling to unit variance.
++ SelectFromModel (from sklearn): A scikit-learn meta-transformer that selects features based on importance weights from a trained model.
++ DecisionTreeRegressor: A scikit-learn model that uses a tree structure for regression tasks.
++ GradientBoostingRegressor: A scikit-learn ensemble model that builds an additive model in a forward stage-wise fashion.
++ RandomForestRegressor: A scikit-learn ensemble model that fits a number of decision tree regressors on various sub-samples of the dataset.
++ LinearRegression: A scikit-learn model that fits a linear model for regression tasks.
++ AdaBoostRegressor: A scikit-learn ensemble meta-estimator that fits a regressor on the original dataset and then fits additional copies of the regressor on the same dataset but where the weights of instances are adjusted.
++ GridSearchCV (from sklearn): A scikit-learn utility for exhaustive search over specified parameter values for an estimator.
++ sklearn.metrics r2_score, mean_squared_error, mean_absolute_error: Scikit-learn functions for evaluating regression model performance.
++ ExtraTreesRegressor (from sklearn): A scikit-learn ensemble model that fits a number of randomized decision trees on various sub-samples of the dataset.
++ xgboost: An optimized distributed gradient boosting library designed to be highly efficient, flexible, and portable.
++ XGBRegressor: The XGBoost implementation for regression tasks.
++ joblib: A Python library for pipelining Python jobs, particularly useful for caching and parallel computing.
++ Streamlit: A Python library that turns data scripts into shareable web applications.
+
+### Other Technologies Used
+
++ GitHub: A web-based platform for version control and collaboration, primarily for software development.
++ Microsoft Excel: A spreadsheet program used for data organization, analysis, and visualization.
++ Jupyter Notebook: An open-source web application that allows you to create and share documents containing live code, visualizations, and narrative text.
 
 ## Credits
 
