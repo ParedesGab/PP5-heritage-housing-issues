@@ -585,6 +585,22 @@ transformation (as vt) vt.YeoJohnsonTransformer: A feature_engine transformer th
 + Microsoft Excel: A spreadsheet program used for data organization, analysis, and visualization.
 + Jupyter Notebook: An open-source web application that allows you to create and share documents containing live code, visualizations, and narrative text.
 
+---
+
+## Future Implementations
+
++ The SmartCorrelatedSelection step in Notebook 4-FeatureEngineering used a 0.6 threshold. It would be beneficial to experiment with this threshold to better understand and address multicollinearity within the dataset.
+
++ As a future experiment, I would like to explore a classification approach to sales price prediction. This would involve discretizing the continuous sales price into pre-defined ranges (e.g., "low," "medium," "high") and then training a classification model. This shift would allow to assess performance using classification-specific metrics and algorithms, offering a different analytical lens, albeit sacrificing the exact price prediction of a regression model.
+  
++ Explore unsupervised machine learning techniques, such as clustering, to identify natural groupings among the house records from Ames, Iowa, based on their characteristics.
+
++ Pearson and Spearman correlation highlighted YearBuilt's strong relationship with SalePrice. However, YearBuilt was eliminated during the SmartCorrelatedSelection phase of the regression pipeline, with YearRemod ultimately being selected as a top feature by SelectFromModel. Therefore, I am interested in refitting the pipeline while explicitly retaining YearBuilt to further assess its contribution.
+  
++ Customize visualizations of top correlated variables against SalePrice for enhanced clarity. For instance, YearBuilt's relationship with SalePrice could be better represented using a linear plot instead of a scatter plot.
+
+---
+
 ## Credits
 
 * In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
