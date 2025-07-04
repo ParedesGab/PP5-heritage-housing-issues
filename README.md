@@ -603,22 +603,25 @@ transformation (as vt) vt.YeoJohnsonTransformer: A feature_engine transformer th
 
 ## Credits
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
-* You can break the credits section up into Content and Media, depending on what you have included in your project.
+### Code
+This project used the fictious dataset housing_prices_data created by Code Institue and sourced from Kaggle. 
+The Jupyter notebooks and application pages incorporate logic and code significantly influenced by the Code Institute 'Churnometer' walkthrough. However, I carefully revised and adapted these elements for this project, applying analytical thinking to determine each step.
+The following functions from the Churnometer project were utilized in my project EvaluateMissingData function; DisplayCorrAndPPS; CalculateCorrAndPPS; heatmap_pps; heatmap_corr; DataCleaningEffect; plot_histogram_and_boxplot; FeatureEngineeringAnalysis; check_user_entry_on_analysis_type; check_missing_values; define_list_column_transformers; apply_transformers; DiagnosticPlots_Categories; DiagnosticPlots_Numerical; FeatEngineering_CategoricalEncoder; FeatEngineering_OutlierWinsorizer; FeatEngineering_Numerical.
+Any modifications made to the Code Institute functions are specified in the respective notebook.
+The choice of hyperparameters for ExtraTreesRegressor and GradientBoostingRegressor relied heavily on the official Scikit-learn documentation ([links provided]) and relevant Code Institute study materials.
+https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html, 
+https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html
 
-### Content
+### Images
+All images in the ReadMe are screenshots directly from my live project application.
 
-* The text for the Home page was taken from Wikipedia Article A
-* Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-* The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-* The photos used on the home and sign-up page are from This Open Source site
-* The images used for the gallery page were taken from this other open-source site
 
 ## Acknowledgements (optional)
 
++ Thank you very much to my cohort Kay Welfare for the important tips!
 
-* In case you would like to thank the people that provided support through this project.
++ Than you the Code Institute Tutor Team for showing me the guidelines to deploy in Render.
 
++ To my family, especially my husband Johannes, my parents Hilder and Marcela and my siblings Brando and Sandra: thank you for all your support and cheering on this project. It means the world.
+
++ This project marks the fifth and final Portfolio Project of my journey with Code Institute. I want to extend my sincere thanks to Code Institute for providing comprehensive and foundational learning materials, instrumental in developing this predictive analytics application. My gratitude also goes out to all the Code Institute members who were incredibly supportive throughout this journey. It was a truly fantastic experience; you've done an outstanding job teaching and dissecting complex topics, making this learning journey both fun and memorable!
