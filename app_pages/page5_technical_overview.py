@@ -48,7 +48,12 @@ def page_display_technical_overview():
     st.write("---")
 
     # show best features
-    st.write("### The features the model was trained on, and their importance.")
+    st.write("### Feature Importance: What Drives House Prices?")
+    st.write("Our analysis shows that we didn't need every feature from" \
+    " the Housing Prices Dataset to train an effective model. Instead, we " \
+    "identified the most influential features that truly impact sale prices. " \
+    "The model was trained on these key features, and their importance "
+    "is as follows:")
     st.write(X_train.columns.to_list())
     st.image(saleprice_feat_importance)
     st.write("---")
