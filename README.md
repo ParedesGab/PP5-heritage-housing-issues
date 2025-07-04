@@ -149,6 +149,158 @@ enabling them to optimize sales strategies and maximize value for houses they in
 
 ---
 
+## Epics and User Stories
+
+The project was structured using **Epics and User Stories**, which are presented and described below:
+
+### **Epic 1:** Data collection and Information gathering
+
+For a more detailed description, please revise Jupyter notebook: 1-DataCollection.ipynb
+
+#### User Story: Fetching and Saving the Data
+
++ As a **data analyst/data scientist**, I want to **collect the dataset from Kaggle** so that I can **download the unzipped file to a destination folder within my workspace**
+
+#### User Story: Loading and Inspecting the Data
+
++ As a **data analyst/data scientist**, I want to **load and inspect the raw downloaded data** so that I can **start getting familiar with the dataset before performing in-depth analysis**
+
+### **Epic 2:**  Exploratory Data Analysis and visualization
+
+For a more detailed description, please revise Jupyter notebook: 2-HouseSalesPriceStudy.ipynb
+
+#### User Story: Loading the Data
+
++ As a **data analyst/data scientist**, I want to **load the data** so that I can **start data analysis**
+
+#### User Story: Creating a Profile Report
+
++ As a **data analyst/data scientist**, I want to **generate a Profile Report for comprehensive Exploratory Data Analysis (EDA)** so that I can **reveal variable datatypes, expose missing data, and illustrate distributions and unique values.**
+
+#### User Story: Handling Missing Values
+
++ As a **data analyst/data scientist**, I want to **handle any missing values before performing correlation analysis**, so that the correlation coefficients are accurately calculated, free from bias, and based on a robust sample size.
+
+#### User Story: Converting Categorical Variables to Numerical Variables
+
++ As a **data analyst/data scientist**, I want to **convert categorical variables to numerical variables**, so that **these variables are also included in the correlation analysis – which only accepts and requires numbers as inputs.**
+
+#### User Story: Correlation Analysis: Pearson and Spearman
+
++ As a **data analyst/data scientist**, I want to **perform Pearson and Spearman correlation analysis**, so that I can **understand the variables/features that most correlate with a house sale price (target), and create their respective visuals to be displayed in the application dashboard**
+
+#### User Story: Create a Parallel Plot
+
++ As a **data analyst/data scientist**, I want to **create a single, comprehensive visualization that simultaneously displays how the most correlated features interact with the target SalePrice**, so that I can **gain a holistic understanding of their collective influence on house sale prices.**
+
+### **Epic 3:** Data Preparation - Data cleaning
+
+For a more detailed description, please revise Jupyter notebook: 3-DataCleaning.ipynb
+
+#### User Story: Data Cleaning
+
++ As a **data analyst/data scientist**, I want to **clean my data, by evaluating missing values, handling missing values, and dropping duplicated rows and/or variables with high missing values (more than 80%)**, so that **the dataset is prepared for robust data analysis and, and these essential cleaning steps are incorporated into the model training pipeline**
+
+### **Epic 4:** Data Preparation -  Feature Engineering
+
+For a more detailed description, please revise Jupyter notebook:  4-FeatureEngineering.ipynb
+
+#### User Story: Feature Engineering
+
++ As a **data analyst/data scientist**, I want to **feature engineer my dataset**, by removing outliers (using Winsorizer), converting categorical variables to numerical (using ordinal encoding where appropriate), performing numerical transformations for more normal distributions, and applying Smart Correlation Selection to reduce highly correlated features, so that **these steps are incorporated into the model training pipeline, following data cleaning, to optimally prepare the data, before splitting it into train and test sets.**
+
+### **Epic 5:** Model training, optimization and validation
+
+For a more detailed description, please revise Jupyter notebook:  5-ModellingAndEvaluation-PredictSalePrice.ipynb
+
+#### User Story: Create ML Pipeline
+
++ As a **data analyst/data scientist**, I want to ** build an end-to-end Machine Learning regressor pipeline that systematically includes steps for Data Cleaning, Feature Engineering, Feature Scaling, and Feature Selection, followed by the evaluation of various Machine Learning algorithms to identify the optimal model for the given dataset.
+
+#### User Story: Split Data into Training and Test sets
+
++ As a **data analyst/data scientist**, I want to **split the dataset into training (X_train, y_train) and testing (X_test, y_test) sets** so that **the data is properly prepared for model training and evaluation.**
+
+#### User Story: Find the best model among a set of different algorithms using Grid Search CV
+
++ As a **data analyst/data scientist**, I want to **utilize GridSearchCV to fit and evaluate different machine learning algorithms (with their default parameters) on my Training data**  sot that ** the two best-performing algorithms, based on its cross-validated (CV) performance, are identified.
+
+  + The two best-performing algorithms (highest CV mean_score) were GradientBoostingRegressor and ExtraTreesRegressor.
+
+####	User Story: Perform an extensive search on the most suitable algorithms to find the best hyperparameter configuration
+
++ As a **data Analyst/data scientist**, I want to **utilize GridSearchCV to perform an extensive hyperparameter search, fitting and evaluating the two most suitable algorithms on my training data (GradientBoostingRegressor and ExtraTreesRegressor), so that **the optimal hyperparameter configuration for each model is identified.**
+
+  + "ExtraTreesRegressor" was identified as the best-performing algorithm, achieving optimal results with the following hyperparameter configuration
+    {'model__bootstrap': True,
+    'model__max_depth': 15,
+    'model__max_features': 'sqrt',
+    'model__min_samples_leaf': 1,
+    'model__min_samples_split': 2,
+    'model__n_estimators': 100}
+
+#### User Story: Evaluate the ML Model Performance on the Train and Test Sets
+
++ As a **data Analyst/data scientist**, I want to **evaluate the Machine Learning ExtraTreesRegressor Model's performance on both the train and test sets using standard regression metrics (R2 score, Mean Squared Error, Mean Absolute Error), so that I can determine if the model achieves an R2 score greater than 0.75 on both sets, hence meeting the specified performance criteria.
+
+  + Model evaluation showed that it indeed met the performance criteria:
+
+    Train Set
+    + R2 Score: 0.959
+    + Mean Absolute Error: 11115.193
+    + Mean Squared Error: 255344546.402
+    + Root Mean Squared Error: 15979.504
+
+    Test Set
+    + R2 Score: 0.767
+    + Mean Absolute Error: 25151.9
+    + Mean Squared Error: 1607466342.169
+    + Root Mean Squared Error: 40093.221
+
+#### User Story: Assess feature importance
+
++ As a **data Analyst/data scientist**, I want to **identify the most influential features used by the trained model** so that **I can refit the pipeline with this reduced feature set, aiming to simplify the model and potentially improve its R2 performance.**
+
+  + The 4 most important features in descending order were:'OverallQual, GarageArea, TotalBsmtSF and YearRemodAdd (Figure below).
+
+#### User Story: Refit the pipeline with best features
+
++ As a **data Analyst/data scientist**, I want to **refit the pipeline with the 4 identified best features,** so that **I can evaluate if the model's performance has improved.**
+
+  + Model evaluation showed that the Model performance on the Test set improved, and thus, we successfully met the performance criteria of at least 0.75 on the train set as well as on the test set:
+  
+    Train Set
+    + R2 Score: 0.959
+    + Mean Absolute Error: 11087.997
+    + Mean Squared Error: 252853242.072
+    + Root Mean Squared Error: 15901.36
+
+    Test Set
+    + R2 Score: 0.778
+    + Mean Absolute Error: 24805.924
+    + Mean Squared Error: 1532760742.768
+    + Root Mean Squared Error: 39150.488
+
+### **Epic 6:**  Dashboard planning, designing, and development
+
+#### User Story: Project Dashboard
+
++ As a **data Analyst/data scientist**, I want to **develop an interactive, clear, and easy-to-navigate dashboard** that contains the following pages:
+
+  + Page 1 : A project summary page that introduces the project terms and jargon , the dataset and business requirements.
+  + Page 2: The House Sales Price Study page that answers business requirement 1 and presents the visualizations described in Epic 2.
+  + Page 3: The Predict House Sale Price page that answers business requirement 2 by displaying the "Total Predicted Sale Price" for the client's four inherited houses. This page also features interactive widgets for the four most important features: OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd (derived from Epic 5), collectively enabling the prediction of a sale price for any house in Ames, Iowa.
+  + Page 4: A Project Hypothesis and Validation page that addresses the 3-project hypothesis and how they were validated.  
+  + Page 5: The ML: House Sales Price page, that is a technical page dedicated to the Machine Learning regression model. It indicates the model's task, displays the ML pipeline after its refitting with the four best features (derived from Epic 5), and provides a detailed list and plot of these features. This page also explicitly displays the Pipeline Performance metrics: R2 score, Mean Squared Error, and Mean Absolute Error.
+
++ As a **the Client with the Inherited Houses**,  I want to **access an easy-to-use dashboard that shows relevant information in visuals and text regarding my business requirements**, so that I can **quickly understand which variables correlate the most with Sale Price, see the predicted sale price of my inherited houses, and/ or predict the sale price for any other houses in the Ames Iowa.**
+
+### **Epic 7:** Dashboard deployment and release
+
++ As a **data Analyst/data scientist**, I want to **deploy the project dashboard to a reliable and accessible platform so that users and clients can seamlessly navigate all project pages and access insights without encountering technical issues.**
+
+---
+
 ## Dashboard Design (Streamlit App User Interface)
 
 + Pages style: To enhance visual engagement and break monotony, an alternating green and blue color scheme has been applied to informational text blocks (utilizing st.success and st.info,). This color style is maintained consistently across all application pages.
