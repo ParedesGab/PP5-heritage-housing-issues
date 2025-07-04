@@ -16,7 +16,7 @@ app.add_page("Project Summary", page_summary_body)
 app.add_page("House Sales Price Study", page_house_sales_price_study_body)
 app.add_page("Predict House Sale Price", page_predict_house_sale_price_body)
 app.add_page("Project Hypothesis and Validation", page_project_hypothesis_body)
-app.add_page("ML: Prospect House Sales Price", page_display_technical_overview)
+app.add_page("ML: House Sales Price", page_display_technical_overview)
 
 # Run the  app
 app.run() 

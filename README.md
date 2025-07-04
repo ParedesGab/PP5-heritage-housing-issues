@@ -347,6 +347,8 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
 
 ## Dashboard Design (Streamlit App User Interface)
 
++ The dashboard served as the user-facing interface of the Heritage Housing project. Built with [Streamlit](https://streamlit.io/), it presents predictions and insights in a clear, interactive, and accessible format—suitable for both technical and non-technical users.
+
 + Pages style: To enhance visual engagement and break monotony, an alternating green and blue color scheme has been applied to informational text blocks (utilizing st.success and st.info,). This color style is maintained consistently across all application pages.
 
 ### Page 1: Project summary
