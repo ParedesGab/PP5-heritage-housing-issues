@@ -73,8 +73,8 @@ def page_house_sales_price_study_body():
 
     # Individual plots per variable
     st.write(
-        f"The boxes below display data visualisations of the "
-        f"top correlated variables against the sale price.\n"
+        f"* Data visualisations of the top correlated variables against the "
+        f"sale price are displayed when toggling the checkboxes below.\n"
     )
 
     # Code copied from "2-HouseSalesPriceStudy" notebook:
