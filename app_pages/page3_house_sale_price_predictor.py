@@ -45,17 +45,22 @@ def page_predict_house_sale_price_body():
 
                 
         st.info(f"**CONCLUSIONS**\n\n"
-                f"* The most influential attributes correspond to the house "
-                f"attributes OverallQual, GarageArea, TotalBsmtSF, and "
-                f"YearRemodAdd. \n"
-               f"* These specific attributes were identified by the machine "
-               f"learning regression model as the most influential or "
-               f"**best features** for predicting house prices.\n"
-               f"* Therefore, the client can strategically boost their home's "
-               f"market value by: .\n"
-               f"    * **Boost Overall Quality (OverallQual):** Improve materials and finishes (e.g., flooring, countertops) to signal high craftsmanship.\n"
-               f"    * **Expand Garage and Basement Space (GarageArea, TotalBsmtSF):** Increase garage square footage or finish basement areas to add valuable functional space.\n"
-               f"    * **Renovate Strategically (YearRemodAdd):** Recent remodels make a house appear modern and well-maintained, directly contributing to a higher sale price."
+                f"* As shown on the Table above, the most influential attributes "
+                f"correspond to the house attributes OverallQual, GarageArea, "
+                f"TotalBsmtSF, and YearRemodAdd. \n"
+                f"* These specific attributes were identified by the machine "
+                f"learning regression model as the most influential or "
+                f"**best features** for predicting house prices.\n"
+                f"* Therefore, the client can strategically boost their home's "
+                f"market value by: .\n"
+                f"    * **Boost Overall Quality (OverallQual):** Improve "
+                f"the house materials and finishes.\n"
+                f"    * **Expand Garage and Basement Space (GarageArea, "
+                f"TotalBsmtSF):** Increase garage square footage or finish "
+                f"basement areas.\n"
+                f"    * **Renovate Strategically (YearRemodAdd):** Recent "
+                f"remodels make a house appear modern and well-maintained, "
+                f"directly contributing to a higher sale price.\n"
                )
 
     st.write("---") 
