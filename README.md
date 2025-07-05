@@ -154,19 +154,19 @@ The project was structured using **Epics and User Stories**, which are presented
 
 #### User Story: Fetching and Saving the Data
 
-+ As a **data analyst/data scientist**, I want to **collect the dataset from [Kaggle](https://www.kaggle.com/)** so that I can **download the unzipped file to a destination folder within my workspace**
++ As a **data analyst/data scientist**, I want to **collect the dataset from [Kaggle](https://www.kaggle.com/)** so that I can **download the unzipped file to a destination folder within my workspace.**
 
 #### User Story: Loading and Inspecting the Data
 
-+ As a **data analyst/data scientist**, I want to **load and inspect the raw downloaded data** so that I can **start getting familiar with the dataset before performing in-depth analysis**
++ As a **data analyst/data scientist**, I want to **load and inspect the raw downloaded data** so that I can **start getting familiar with the dataset before performing in-depth analysis.**
 
 ### **Epic 2:**  Exploratory Data Analysis and visualization
 
-For a more detailed description, please revise Jupyter notebook: 2-HouseSalesPriceStudy.ipynb
++ For a more detailed description, please revise Jupyter notebook: [2-HouseSalesPriceStudy.ipynb](https://github.com/ParedesGab/PP5-heritage-housing-issues/blob/main/jupyter_notebooks/2-HouseSalesPriceStudy.ipynb)
 
 #### User Story: Loading the Data
 
-+ As a **data analyst/data scientist**, I want to **load the data** so that I can **start data analysis**
++ As a **data analyst/data scientist**, I want to **load the data** so that I can **start data analysis.**
 
 #### User Story: Creating a Profile Report
 
@@ -184,6 +184,10 @@ For a more detailed description, please revise Jupyter notebook: 2-HouseSalesPri
 
 + As a **data analyst/data scientist**, I want to **perform Pearson and Spearman correlation analysis**, so that I can **understand the variables/features that most correlate with a house sale price (target), and create their respective visuals to be displayed in the application dashboard**
 
+#### User Story: PPS Analysis
+
++ As a data analyst/data scientist, I want to perform a Predictive Power Score (PPS) analysis, so that I can understand the variables/features that most effectively predict a house sale price (target).
+
 #### User Story: Create a Parallel Plot
 
 + As a **data analyst/data scientist**, I want to **create a single, comprehensive visualization that simultaneously displays how the most correlated features interact with the target SalePrice**, so that I can **gain a holistic understanding of their collective influence on house sale prices.**
@@ -192,7 +196,7 @@ For a more detailed description, please revise Jupyter notebook: 2-HouseSalesPri
 
 ### **Epic 3:** Data Preparation - Data cleaning
 
-For a more detailed description, please revise Jupyter notebook: 3-DataCleaning.ipynb
+For a more detailed description, please revise Jupyter notebook: [3-DataCleaning.ipynb](https://github.com/ParedesGab/PP5-heritage-housing-issues/blob/main/jupyter_notebooks/3-DataCleaning.ipynb)
 
 #### User Story: Data Cleaning
 
@@ -235,13 +239,14 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
 + As a **data analyst/data scientist**, I want to **utilize GridSearchCV to fit and evaluate different machine learning algorithms (with their default parameters) on my Training data**  sot that ** the two best-performing algorithms, based on its cross-validated (CV) performance, are identified.
 
   + The two best-performing algorithms (highest CV mean_score) were GradientBoostingRegressor and ExtraTreesRegressor.
-![Two best-performing algorithms](documentation/model_evaluation_screenshots/algorithms_performance_after_cv.png)
+
+  ![Two best-performing algorithms](documentation/model_evaluation_screenshots/algorithms_performance_after_cv.png)
 
 ####	User Story: Perform an extensive search on the most suitable algorithms to find the best hyperparameter configuration
 
 + As a **data Analyst/data scientist**, I want to **utilize GridSearchCV to perform an extensive hyperparameter search, fitting and evaluating the two most suitable algorithms on my training data (GradientBoostingRegressor and ExtraTreesRegressor), so that **the optimal hyperparameter configuration for each model is identified.**
 
-![Most suitable algorithms with hyperparameters](documentation/model_evaluation_screenshots/the_two_most_suitable_algorithms.png)
+  ![Most suitable algorithms with hyperparameters](documentation/model_evaluation_screenshots/the_two_most_suitable_algorithms.png)
 
 + The reason behind this choice of hyperparameters was:
 
@@ -263,7 +268,7 @@ For a more detailed description, please revise Jupyter notebook:  5-ModellingAnd
 
 + "ExtraTreesRegressor" was identified as the best-performing algorithm (Figure below)
 
-![Best model](documentation/model_evaluation_screenshots/best_model.png)
+  ![Best model](documentation/model_evaluation_screenshots/best_model.png)
 
 + It achieved optimal results with the following hyperparameter configuration:
 
