@@ -204,7 +204,7 @@ For a more detailed description, please revise Jupyter notebook: [3-DataCleaning
 
 ### **Epic 4:** Data Preparation -  Feature Engineering
 
-For a more detailed description, please revise Jupyter notebook:  4-FeatureEngineering.ipynb
+For a more detailed description, please revise Jupyter notebook: [4-FeatureEngineering.ipynb](https://github.com/ParedesGab/PP5-heritage-housing-issues/blob/main/jupyter_notebooks/4-FeatureEngineering.ipynb)
 
 #### User Story: Feature Engineering
 
@@ -212,7 +212,7 @@ For a more detailed description, please revise Jupyter notebook:  4-FeatureEngin
 
 ### **Epic 5:** Model training, optimization and validation
 
-For a more detailed description, please revise Jupyter notebook:  5-ModellingAndEvaluation-PredictSalePrice.ipynb
+For a more detailed description, please revise Jupyter notebook [5-ModellingAndEvaluation-PredictSalePrice.ipynb](https://github.com/ParedesGab/PP5-heritage-housing-issues/blob/main/jupyter_notebooks/5-ModellingAndEvaluation-PredictSalePrice.ipynb)
 
 #### User Story: Create ML Pipeline
 
