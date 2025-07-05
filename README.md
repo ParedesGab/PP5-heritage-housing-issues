@@ -172,9 +172,19 @@ The project was structured using **Epics and User Stories**, which are presented
 
 + As a **data analyst/data scientist**, I want to **generate a Profile Report for comprehensive Exploratory Data Analysis (EDA)** so that I can **reveal variable datatypes, expose missing data, and illustrate distributions and unique values.**
 
+![Profile Report](documentation/data_analysis_screenshots/profile_report.png)
+
 #### User Story: Handling Missing Values
 
 + As a **data analyst/data scientist**, I want to **handle any missing values before performing correlation analysis**, so that the correlation coefficients are accurately calculated, free from bias, and based on a robust sample size.
+
+  + For **categorical variables (Objects)**: Missing entries were imputed with the label 'Missing', and this new 'Missing' category was included in subsequent evaluations (Find one example below).
+  
+  ![Categorical Imputation example](documentation/data_analysis_screenshots/example_categorical_imputation.png)
+
+  + **Numerical variables (Floats and Integers):** Given their non-normal distributions, missing values were imputed using the median of each respective variable (Find one example below)
+
+  ![Median Imputation example](documentation/data_analysis_screenshots/example_median_imputation.png)
 
 #### User Story: Converting Categorical Variables to Numerical Variables
 
@@ -182,11 +192,20 @@ The project was structured using **Epics and User Stories**, which are presented
 
 #### User Story: Correlation Analysis: Pearson and Spearman
 
-+ As a **data analyst/data scientist**, I want to **perform Pearson and Spearman correlation analysis**, so that I can **understand the variables/features that most correlate with a house sale price (target), and create their respective visuals to be displayed in the application dashboard**
++ As a **data analyst/data scientist**, I want to **perform Pearson and Spearman correlation analysis**, so that I can **understand the variables/features that most correlate with a house sale price (target), create heatmaps to facilita the data analysis through a visual representation of the correlation coefficients, and create visuals between the target SalePrice and the most correlated variables, for them to be displayed in the application dashboard**
+
+  + Pearson Heatmap
+  ![Peason Heatmap](documentation/data_analysis_screenshots/heatmap_pearson.png)
+
+  + Spearman Heatmap
+  ![Spearman Heatmap](documentation/data_analysis_screenshots/heatmap_spearman.png)
 
 #### User Story: PPS Analysis
 
-+ As a data analyst/data scientist, I want to perform a Predictive Power Score (PPS) analysis, so that I can understand the variables/features that most effectively predict a house sale price (target).
++ As a data analyst/data scientist, I want to perform a Predictive Power Score (PPS) analysis, so that I can understand the variables/features that most effectively predict a house sale price (target), and visualize their predictive power using a heatmap to facilitate data analysis.
+
++ PPS Heatmap
+![PPS Heatmap](documentation/data_analysis_screenshots/heatmap_pps.png)
 
 #### User Story: Create a Parallel Plot
 
