@@ -80,7 +80,7 @@ def page_predict_house_sale_price_body():
                f"* The four interactive widgets provided below "
                f"correspond to the house attributes OverallQual, GarageArea, "
                f"TotalBsmtSF, and YearRemodAdd. \n"
-               f"* These specific attributes were chosen for the widgets "
+               f"* As mentioned above, they were chosen for the widgets "
                f"because the machine learning regression model identified "
                f"them as its most influential or **best features** for "
                f"predicting house prices.\n")
