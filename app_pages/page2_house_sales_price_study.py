@@ -87,7 +87,7 @@ def page_house_sales_price_study_body():
     # Parallel plot
     if st.checkbox("Parallel Plot"):
         st.write(
-            f"* Red: Houses sold at the highest prices.\n"
+            f"* Dark Red: Houses sold at the highest prices.\n"
             f"* Dark Blue: Houses sold at the lowes prices.\n"
             )
         parallel_plot_sale_price(df_eda)
