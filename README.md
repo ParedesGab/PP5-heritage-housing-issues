@@ -24,7 +24,7 @@ Let's go! 🚀
 
 ## Dataset Content
 
-+ The dataset is sourced from Kaggle, and comprises 1,460 public records of houses sold in Ames, Iowa.
++ The dataset is sourced from [Kaggle](https://www.kaggle.com/), and comprises 1,460 public records of houses sold in Ames, Iowa.
 + The houses were constructed between 1872 and 2010.
 + The dataset features 24 attributes, each detailing a specific house characteristic.
 + From these, 20 are numeric (integers or floats) and 4 are categorical (objects).
@@ -108,7 +108,7 @@ and has the two following business requirements:
 + **Business Requirement 1:** Data Visualization and Correlation study
 
   + We will inspect the [Housing Prices Dataset](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data).
-  + We will conduct a correlation study (using Pearson and Spearman correlations) to understand better how the variables (house attributes) are correlated to SalePrice.
+  + We will conduct a correlation study (using Pearson and Spearman correlations, and PPS analysis) to understand better how the variables (house attributes) are correlated to SalePrice.
   + We will plot the most correlated variables against SalePrice to visualize insights.
 
 + **Business Requirement 2:** Regression and Data Analysis
@@ -137,8 +137,8 @@ and has the two following business requirements:
 		which is a substantial drop from the agreed-upon performance goal of 0.75.
 		
 + The output is defined as a continuous value for SalePrice in dollars. It is assumed that this model will predict a property sale price.
-+ To make a house sale price prediction, the client will gather the input data and feed it into the App. The prediction is made on the fly (not in batche
-+ Heuristics: Currently, there is no established approach to predict house SalePrices in Ames, Iowa.
++ To make a house sale price prediction, the client will gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
++ Heuristics: Currently, there is no established approach to predict house sale prices in Ames, Iowa.
 + The training data to fit the model comes from the Ames, Iowa [Housing Prices Dataset](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data). This dataset contains 1,460 house records.
   + Train data - target: SalePrice; features: all other variables but EnclosedPorch and WoodDeckSF (dropped because they had > 80% of missing values).
 
@@ -192,7 +192,9 @@ The project was structured using **Epics and User Stories**, which are presented
 
 + As a **data analyst/data scientist**, I want to **create a single, comprehensive visualization that simultaneously displays how the most correlated features interact with the target SalePrice**, so that I can **gain a holistic understanding of their collective influence on house sale prices.**
 
-  + CHANGE Fullfillment of Business Requirement 1: With an R2 score of 0.959 on the training set and a robust 0.778 on the test set, our regression model has successfully met the defined performance criteria. This enables us to confidently state that the model accurately predicts house sale prices in Ames, Iowa, fulfilling Business Requirement 2.
+#### ⭐ User Story: FULFILLMENT OF BUSINESS REQUIREMENT 1
+
++ CHANGE Fullfillment of Business Requirement 1: With an R2 score of 0.959 on the training set and a robust 0.778 on the test set, our regression model has successfully met the defined performance criteria. This enables us to confidently state that the model accurately predicts house sale prices in Ames, Iowa, fulfilling Business Requirement 2.
 
 ### **Epic 3:** Data Preparation - Data cleaning
 
@@ -208,7 +210,7 @@ For a more detailed description, please revise Jupyter notebook: [4-FeatureEngin
 
 #### User Story: Feature Engineering
 
-+ As a **data analyst/data scientist**, I want to **feature engineer my dataset**, by removing outliers (using Winsorizer), converting categorical variables to numerical (using ordinal encoding where appropriate), performing numerical transformations for more normal distributions, and applying Smart Correlation Selection to reduce highly correlated features, so that **these steps are incorporated into the model training pipeline, following data cleaning, to optimally prepare the data, before splitting it into train and test sets.**
++ As a **data analyst/data scientist**, I want to **feature engineer my dataset**, by removing outliers (using Winsorizer), converting categorical variables to numerical (using ordinal encoding where appropriate), performing numerical transformations for more normal distributions (using YeoJohnsonTransformer), and applying Smart Correlation Selection to reduce highly correlated features, so that **these steps are incorporated into the model training pipeline, following data cleaning, to optimally prepare the data, before splitting it into train and test sets.**
 
 ### **Epic 5:** Model training, optimization and validation
 
@@ -216,7 +218,7 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
 #### User Story: Create ML Pipeline
 
-+ As a **data analyst/data scientist**, I want to ** build an end-to-end Machine Learning regressor pipeline that systematically includes steps for Data Cleaning, Feature Engineering, Feature Scaling, and Feature Selection, followed by the evaluation of various Machine Learning algorithms to identify the optimal model for the given dataset.
++ As a **data analyst/data scientist**, I want to **build an end-to-end Machine Learning regressor pipeline that systematically includes steps for Data Cleaning, Feature Engineering, Feature Scaling, and Feature Selection, followed by the evaluation of various Machine Learning algorithms to identify the optimal model for the given dataset.**
 
 + The regression algorithms evalualed included:
   
@@ -236,15 +238,15 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
 #### User Story: Find the best model among a set of different algorithms using Grid Search CV
 
-+ As a **data analyst/data scientist**, I want to **utilize GridSearchCV to fit and evaluate different machine learning algorithms (with their default parameters) on my Training data**  sot that ** the two best-performing algorithms, based on its cross-validated (CV) performance, are identified.
++ As a **data analyst/data scientist**, I want to **utilize GridSearchCV to fit and evaluate different machine learning algorithms (with their default parameters) on my Training data**  sot that **the two best-performing algorithms, based on its cross-validated (CV) performance, are identified.**
 
-  + The two best-performing algorithms (highest CV mean_score) were GradientBoostingRegressor and ExtraTreesRegressor.
+  + The two best-performing algorithms (highest CV mean_score) were GradientBoostingRegressor and ExtraTreesRegressor (Figure below).
 
   ![Two best-performing algorithms](documentation/model_evaluation_screenshots/algorithms_performance_after_cv.png)
 
 ####	User Story: Perform an extensive search on the most suitable algorithms to find the best hyperparameter configuration
 
-+ As a **data Analyst/data scientist**, I want to **utilize GridSearchCV to perform an extensive hyperparameter search, fitting and evaluating the two most suitable algorithms on my training data (GradientBoostingRegressor and ExtraTreesRegressor), so that **the optimal hyperparameter configuration for each model is identified.**
++ As a **data analyst/data scientist**, I want to **utilize GridSearchCV to perform an extensive hyperparameter search, fitting and evaluating the two most suitable algorithms on my training data (GradientBoostingRegressor and ExtraTreesRegressor), so that **the optimal hyperparameter configuration for each model is identified (Figure below).**
 
   ![Most suitable algorithms with hyperparameters](documentation/model_evaluation_screenshots/the_two_most_suitable_algorithms.png)
 
@@ -281,9 +283,9 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
 #### User Story: Evaluate the ML Model Performance on the Train and Test Sets
 
-+ As a **data Analyst/data scientist**, I want to **evaluate the Machine Learning ExtraTreesRegressor Model's performance on both the train and test sets using standard regression metrics (R2 score, Mean Squared Error, Mean Absolute Error), so that I can determine if the model achieves an R2 score greater than 0.75 on both sets, hence meeting the specified performance criteria.
++ As a **data analyst/data scientist**, I want to **evaluate the Machine Learning ExtraTreesRegressor Model's performance on both the train and test sets using standard regression metrics (R2 score, Mean Squared Error, Mean Absolute Error)**, so that I can **determine if the model achieves an R2 score greater than 0.75 on both sets, hence meeting the specified performance criteria.**
 
-  + Model evaluation showed that it indeed met the performance criteria:
+  + Model evaluation showed that it indeed met the performance criteria 🎉:
 
     Train Set
     + R2 Score: 0.959
@@ -299,17 +301,17 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
 #### User Story: Assess feature importance
 
-+ As a **data Analyst/data scientist**, I want to **identify the most influential features used by the trained model** so that **I can refit the pipeline with this reduced feature set, aiming to simplify the model and potentially improve its R2 performance.**
++ As a **data analyst/data scientist**, I want to **identify the most influential features used by the trained model** so that **I can refit the pipeline with this reduced feature set, aiming to simplify the model and potentially improve its R2 performance.**
 
-  + The 4 most important features in descending order were:'OverallQual, GarageArea, TotalBsmtSF and YearRemodAdd (Figure below).
+  + The 4 most important features in descending order were:OverallQual, GarageArea, TotalBsmtSF and YearRemodAdd (Figure below).
 
   ![Best features](documentation/model_evaluation_screenshots/model_best_features.png)
   
 #### User Story: Refit the pipeline with best features
 
-+ As a **data Analyst/data scientist**, I want to **refit the pipeline with the 4 identified best features,** so that **I can evaluate if the model's performance has improved.**
++ As a **data analyst/data scientist**, I want to **refit the pipeline with the 4 identified best features,** so that **I can evaluate if the model's performance has improved.**
 
-  + Model evaluation showed that the Model performance on the Test set improved, and thus, we successfully met the performance criteria of at least 0.75 on the train set as well as on the test set:
+  + Model evaluation showed that the Model performance on the Test set improved, and thus, we successfully met the performance criteria of at least 0.75 on the train set as well as on the test set 🎉🎉🎉:
   
     Train Set
     + R2 Score: 0.959
@@ -322,8 +324,10 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
     + Mean Absolute Error: 24805.924
     + Mean Squared Error: 1532760742.768
     + Root Mean Squared Error: 39150.488
-  
-  + Fullfillment of Business Requirement 2: With an R2 score of 0.959 on the training set and a robust 0.778 on the test set, our regression model has successfully met the defined performance criteria. This enables us to confidently state that the model accurately predicts house sale prices in Ames, Iowa, fulfilling Business Requirement 2.
+
+#### ⭐ User Story: FULFILLMENT OF BUSINESS REQUIREMENT 2
+
++ With an R2 score of 0.959 on the training set and a robust 0.778 on the test set, our regression model has successfully met the defined performance criteria. This enables us to confidently state that the model accurately predicts house sale prices in Ames, Iowa, fulfilling Business Requirement 2.
 
 ### **Epic 6:**  Dashboard planning, designing, and development
 
@@ -341,7 +345,7 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
 ### **Epic 7:** Dashboard deployment and release
 
-+ As a **data Analyst/data scientist**, I want to **deploy the project dashboard to a reliable and accessible platform so that users and clients can seamlessly navigate all project pages and access insights without encountering technical issues.**
++ As a **data Analyst/data scientist**, I want to **deploy the project dashboard to a reliable and accessible platform so that users/clients can seamlessly navigate all project pages and access insights without encountering technical issues.**
 
 ---
 
@@ -355,11 +359,13 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
 ![Dashboard Page 1](documentation/screenshots/page1.png)
 
-+ Project summary
-+ Project Terms & Jargon
-+ Describe Project Dataset
-+ State Business Requirements
-+ Link to ReadMe file in case User wants to see the full documentation
++ This page includes:
+
+  + Project summary
+  + Project Terms & Jargon
+  + Describe Project Dataset
+  + State Business Requirements
+  + Link to ReadMe file in case User wants to see the full documentation
 
 ### Page 2: House Sales Price Study
 
@@ -374,11 +380,11 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
     + Display the dataset’s dimensions (number of rows and columns in the data).
     + Display the first ten rows of the dataset.
-    + Display a note below the table, informing the user about the presence of missing values and direct them to revisit this section for details on how they were handled.
+    + Display a note below the table, informing the user about the presence of missing values and direct them to revisit the ReadMe for details on how they were handled.
 
   + Contain  an introduction to the **Correlation Study** that displays the most correlated variables to SalePrice.
   + Contain a summary of its **conclusions**.
-  + Include a checkbox to display individual scatter plots, visualizing SalePrice levels against each of the most correlated variables. Scatter plots were selected as the appropriate visualization method because SalePrice and all identified 'most correlated variables' (1stFlrSF, GarageArea, GrLivArea, OverallQual, TotalBsmtSF, YearBuilt) can be considered continuous numerical variables, making them the most informative choice for illustrating these relationships (Figures below – Scatter Plots).
+  + Include a checkbox to display individual scatter plots, visualizing SalePrice levels against each of the most correlated variables. Scatter plots were selected as the appropriate visualization method because SalePrice and all identified 'most correlated variables' (1stFlrSF, GarageArea, GrLivArea, OverallQual, TotalBsmtSF, YearBuilt) can be considered continuous numerical variables, making them an informative choice for illustrating these relationships (Figures below – Scatter Plots).
 
 + SalePrice vs 1stFlrSF
 ![ScatterPlot SalePrice vs ](documentation/screenshots/scatterplot1-saleprice-vs-1stFlrSF.png)
@@ -417,10 +423,10 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
   + State the page’s title.
   + State **business requirement 2**.
-  + Include a collapsible box (st.expander) showcasing the most influential attributes (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) for the client's inherited houses, alongside their predicted SalePrices. These attributes were specifically identified by the machine learning regression model as the most impactful features (best features) for price prediction.
+  + Include a collapsible box (st.expander) showcasing the most influential attributes (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) for the client's inherited houses, alongside their predicted SalePrices. These attributes were specifically identified by the machine learning regression model as the most impactful features (best features) for price prediction (see Epic 5: Model training, optimization and validation section).
 
   + Contain a section that shows the summed predicted value (in dollars) of the four inherited properties.
-  + Include a section enabling users to predict themselves the SalePrice for any house in Ames, Iowa. The prediction widgets correspond to the most influential features (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) identified by the machine learning model for predicting prospective SalePrice.
+  + Include a section enabling users to predict themselves the SalePrice for any house in Ames, Iowa. The prediction widgets correspond to the most influential features (OverallQual, GarageArea, TotalBsmtSF, and YearRemodAdd) identified by the machine learning model for predicting prospective SalePrice (see Epic 5: Model training, optimization and validation section).
   + Include a "Run predictive analysis" button (st.button) that processes the users’ input through our ML pipeline and predicts the house SalePrice (in dollars).
 
 ### Page 4: Project Hypothesis and Validation
@@ -458,7 +464,7 @@ HYPOTHESIS 3
 ## CRISP-DM Methodology
 
 This project adhered to the Cross-Industry Standard Process for Data Mining (CRISP-DM) methodology throughout all its phases from Business Understanding to Deployment. This well-established framework provided a structured and iterative roadmap, crucial for the successful development of this machine learning-based system.
-The detailed procedures documented below from Data Understanding to evaluation can be found in the [Jupyter notebooks](https://github.com/ParedesGab/PP5-heritage-housing-issues/tree/main/jupyter_notebooks)
+The detailed procedures documented below from Data Understanding to Evaluation can be found in the [Jupyter notebooks](https://github.com/ParedesGab/PP5-heritage-housing-issues/tree/main/jupyter_notebooks)
 
 The adoption of the CRISP-DM framework provided a structured, systematic, and iterative approach crucial for developing this robust system. This methodology was instrumental in enabling data-driven decision-making, ensuring scalability and continuous improvement, and ultimately establishing a highly valuable and adaptable solution for large-scale farm management.
 
@@ -591,7 +597,7 @@ transformation (as vt) vt.YeoJohnsonTransformer: A feature_engine transformer th
 
 ## Future Implementations
 
-+ The SmartCorrelatedSelection step in Notebook 4-FeatureEngineering used a 0.6 threshold. It would be beneficial to experiment with this threshold to better understand and address multicollinearity within the dataset.
++ The SmartCorrelatedSelection step in Notebook [4-FeatureEngineering.ipynb](https://github.com/ParedesGab/PP5-heritage-housing-issues/blob/main/jupyter_notebooks/4-FeatureEngineering.ipynb) used a 0.6 threshold. It would be beneficial to experiment with this threshold to better understand and address multicollinearity within the dataset.
 
 + As a future experiment, I would like to explore a classification approach to sales price prediction. This would involve discretizing the continuous sales price into pre-defined ranges (e.g., "low," "medium," "high") and then training a classification model. This shift would allow to assess performance using classification-specific metrics and algorithms, offering a different analytical lens, albeit sacrificing the exact price prediction of a regression model.
   
@@ -609,7 +615,7 @@ transformation (as vt) vt.YeoJohnsonTransformer: A feature_engine transformer th
 
 + This project used the fictious dataset [Housing Prices Data](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data), created by [Code Institute](https://codeinstitute.net/global/), and sourced from [Kaggle](https://www.kaggle.com/).
 
-+ The Jupyter notebooks and application pages incorporate logic and code significantly influenced by the Code Institute [Churnometer walkthrough project](https://github.com/Code-Institute-Solutions/churnometer). However, I carefully revised and adapted were necessary the code for this project, applying analytical thinking to determine each step.
++ The Jupyter notebooks and application pages incorporate logic and code significantly influenced by the Code Institute [Churnometer walkthrough project](https://github.com/Code-Institute-Solutions/churnometer). However, I carefully revised and adapted were necessary the code for this project, imporntantly, applying analytical thinking to determine each step.
 
 + The following functions from the [Churnometer project](https://github.com/Code-Institute-Solutions/churnometer) were utilized in my project:
   + EvaluateMissingData function; DisplayCorrAndPPS; CalculateCorrAndPPS; heatmap_pps; heatmap_corr; DataCleaningEffect; plot_histogram_and_boxplot; FeatureEngineeringAnalysis; check_user_entry_on_analysis_type; check_missing_values; define_list_column_transformers; apply_transformers; DiagnosticPlots_Categories; DiagnosticPlots_Numerical; FeatEngineering_CategoricalEncoder; FeatEngineering_OutlierWinsorizer; FeatEngineering_Numerical.
@@ -627,9 +633,9 @@ transformation (as vt) vt.YeoJohnsonTransformer: A feature_engine transformer th
 
 ## Acknowledgements
 
-+ Thank you very much to my cohort Kay Welfare for the important tips!
++ Thank you very much to my cohort Kay Welfare for the important tips.
 
-+ Than you the Code Institute Tutor Team for showing me the guidelines to deploy in Render.
++ My sincere gratitude to the Code Institute Tutor Team for providing me the guidelines to deploy in Render.
 
 + To my family, especially my husband Johannes, my parents Hildebrando and Marcela and my siblings Brando and Sandra: thank you for all your support and cheering on this project. It means the world.
 
