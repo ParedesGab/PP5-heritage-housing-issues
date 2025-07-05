@@ -6,11 +6,9 @@
 
 **Welcome to the Heritage Housing Issues App!**
 
-This project proposes an Machine Learning-powered solution that
-will analyze housing records from Ames, Iowa, to uncover crucial correlations
-through data visualization and a predictive regression model in this region.
+This project proposes an Machine Learning-powered solution for analyzing housing records from Ames, Iowa. This solution aims to forecast house sale prices within the region and identify significant correlations between sale price and key house attributes.
 
-    🔸 Discover which house attributes most significantly influence Sale Prices!
+    🔸 Discover which house attributes most significantly influence House Sale Prices!
 
     🔸 Discover the total value of your 4 inherited houses!
 
@@ -26,9 +24,10 @@ Let's go! 🚀
 
 ## Dataset Content
 
-+ The dataset is sourced from Kaggle, and comprises 1,460 public records of houses sold in Ames, Iowa, constructed between 1872 and 2010.
++ The dataset is sourced from Kaggle, and comprises 1,460 public records of houses sold in Ames, Iowa.
++ The houses were constructed between 1872 and 2010.
 + The dataset features 24 attributes, each detailing a specific house characteristic.
-+ From these, 20 are numeric and 4 are categorical (objects).
++ From these, 20 are numeric (integers or floats) and 4 are categorical (objects).
 + For dataset details, please see the table below:
 
 |Variable|Meaning|Units|Data Type|
@@ -63,46 +62,43 @@ Let's go! 🚀
 ## Project Terms & Jargon
 
 + A **house** refers to an individual residential unit in Ames, Iowa.
-+ A **house attribute** is a characteristic of the house, such as Floor Area, Year Built or Kitchen Quality.
++ A **house attribute** is a characteristic of the house, such as Floor Area, Year Built or Kitchen Quality (See Table above).
 + The **SalePrice** is the actual selling price of a property, and our model is built to predict this target value for houses intended to be sold.
-  + Throughout this README, a house selling price will be referred to as the target attribute SalePrice.
-+ An **inherited property** refers to one of the 4 inherited houses for which the client requires a SalePrice prediction.
++ An **inherited property** refers to one of the 4 inherited houses for which the client requires a Sale Price prediction.
 
 ---
 
 ## Business Requirements
 
 A dear friend has inherited properties in Ames, Iowa, and has turned to you for assistance
-in achieving the best possible SalePrices. She's a savvy real estate observer in her own area,
+in achieving the best possible sale prices. She's a savvy real estate observer in her own area,
 but she's keenly aware that what makes a home valuable there might be entirely different in Ames.
 
 To guide your efforts, she has provided you with a public dataset detailing house prices in that specific Iowa market,
 and has the two following business requirements:
 
-    1 - The client is interested in discovering how the house attributes correlate with the SalePrice.
-	Therefore, the client expects data visualisations of the correlated variables against the SalePrice to show that.
+    1 - The client is interested in discovering how the house attributes correlate with sale prices.
+	Therefore, the client expects data visualisations of the correlated variables against the sale price.
 
-    2 - The client is interested in predicting the house SalePrice from her four inherited houses.
+    2 - The client is interested in predicting the house sale price from her four inherited houses.
 
 ---
 
 ## Hypothesis and how to validate?
 
-+ **HYPOTHESIS 1:** We hypothesize that a property's size is a key driver of its SalePrice, with larger homes generally fetching higher SalePrices.
-Consequently, we expect to find strong positive correlations between SalePrice and features indicative of house dimensions,
-such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or WoodDeckSF.
++ **HYPOTHESIS 1:** We hypothesize that a property's size is a key driver of its SalePrice (e.g., larger homes fetch higher sale prices). Consequently, we expect to find strong positive correlations between the target SalePrice and features indicative of house dimensions, such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or WoodDeckSF.
 
-  + A Correlation study can help in this investigation
+  + A Correlation study can help in this investigation.
 
 + **HYPOTHESIS 2:** A recent survey showed that recently remodeled houses are perceived as more valuable.
 
   + A Correlation study can help in this investigation.
-  + Moreover, machine learning pipeline's feature importance analysis can confirm if YearRemodAdd (remodel date) is identified as a significant predictor among the model's most influential features.
+  + Moreover, machine learning pipeline's feature importance analysis can confirm if the feature **YearRemodAdd** (remodelling date) is identified as a significant predictor among the model's most influential features.
 
 + **HYPOTHESIS 3:** We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house SalePrices.
 
   + A Correlation study can help in this investigation.
-  + Moreover, machine learning pipeline's feature importance analysis can confirm if the attribute **OverallQual**
+  + Moreover, machine learning pipeline's feature importance analysis can confirm if the feature **OverallQual**
 	  is identified as a significant predictor among the model's most influential features.
 
 ---
@@ -111,41 +107,40 @@ such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, Garag
 
 + **Business Requirement 1:** Data Visualization and Correlation study
 
-  + We will inspect the house records dataset.
-  + We will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to SalePrice.
-  + We will plot the main variables against SalePrice to visualize insights.
+  + We will inspect the [Housing Prices Dataset](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data).
+  + We will conduct a correlation study (using Pearson and Spearman correlations) to understand better how the variables (house attributes) are correlated to SalePrice.
+  + We will plot the most correlated variables against SalePrice to visualize insights.
 
 + **Business Requirement 2:** Regression and Data Analysis
 
-  + We want to predict the SalePrice of a house from Ames, Iowa.
+  + We want to predict the sale price of a house from Ames, Iowa.
   + Given that it will be a continuous numerical value, we want to build a regression model.
 
 ---
 
 ## ML Business Case
 
-### Predict SalePrice (SalePrice)
+### Predict Sale Price (SalePrice)
 
 #### Regression Model
 
-+ We want an ML model to predict a house SalePrice in Ames, Iowa.
-+ Given that the target variable is a continous value, we consider a **regression model**, which is supervised and uni-dimensional.
-+ Our ideal outcome is to provide our client with reliable insights for accurately predicting property SalePrices,
-enabling them to optimize sales strategies and maximize value for houses they intend to sell.
++ We want an ML model to predict a house sale price in Ames, Iowa.
++ Given that the target variable (SalePrice) is a continous value, we consider a **regression model**, which is supervised and uni-dimensional.
++ Our ideal outcome is to provide our client with reliable property sale price predictions and insights on what house attributes are most influential to the sale price. This will empower them to optimize strategies (e.g., remodelling), thereby maximizing the value of their properties for sale.
 + The model success metrics are:
   + At least 0.75 for R2 score, on both, the train and test set.
 
 + The ML model is considered a failure if:
   + After 6 months of usage, the model's overall explanatory power significantly degrades. For example, if the R-squared
 		(R2) score on newly acquired, unseen data consistently falls below 0.60.
-		This indicates that the model is explaining less than 60% of the variance in actual SalePrices,
+		This indicates that the model is explaining less than 60% of the variance in actual sale prices,
 		which is a substantial drop from the agreed-upon performance goal of 0.75.
 		
-+ The output is defined as a continuous value for SalePrice in dollars. It is assumed that this model will predict a property SalePrice.
-+ The client will gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
++ The output is defined as a continuous value for SalePrice in dollars. It is assumed that this model will predict a property sale price.
++ To make a house sale price prediction, the client will gather the input data and feed it into the App. The prediction is made on the fly (not in batche
 + Heuristics: Currently, there is no established approach to predict house SalePrices in Ames, Iowa.
-+ The training data to fit the model comes from the Ames, Iowa housing dataset. This dataset contains about 1.5 thousand house records.
-  + Train data - target: SalePrice; features: all other variables, but EnclosedPorch and WoodDeckSF (dropped because they had >80% of missing values).
++ The training data to fit the model comes from the Ames, Iowa [Housing Prices Dataset](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data). This dataset contains 1,460 house records.
+  + Train data - target: SalePrice; features: all other variables but EnclosedPorch and WoodDeckSF (dropped because they had > 80% of missing values).
 
 ---
 
@@ -155,11 +150,11 @@ The project was structured using **Epics and User Stories**, which are presented
 
 ### **Epic 1:** Data collection and Information gathering
 
-For a more detailed description, please revise Jupyter notebook: 1-DataCollection.ipynb
++ For a more detailed description, please revise Jupyter notebook: [1-DataCollection.ipynb](https://github.com/ParedesGab/PP5-heritage-housing-issues/blob/main/jupyter_notebooks/1-DataCollection.ipynb)
 
 #### User Story: Fetching and Saving the Data
 
-+ As a **data analyst/data scientist**, I want to **collect the dataset from Kaggle** so that I can **download the unzipped file to a destination folder within my workspace**
++ As a **data analyst/data scientist**, I want to **collect the dataset from [Kaggle](https://www.kaggle.com/)** so that I can **download the unzipped file to a destination folder within my workspace**
 
 #### User Story: Loading and Inspecting the Data
 
