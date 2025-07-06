@@ -346,10 +346,16 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
 
 + As a **data analyst/data scientist**, I want to **identify the most influential features used by the trained model** so that **I can refit the pipeline with this reduced feature set, aiming to simplify the model and potentially improve its R2 performance.**
 
-  + The 4 most important features in descending order were:OverallQual, GarageArea, TotalBsmtSF and YearRemodAdd (Figure below).
+  + The house attributes dentified by the machine learning regression model as the **most influential** or **best features** for predicting house prices are: OverallQual, GarageArea, TotalBsmtSF and YearRemodAdd (Figure below).
 
   ![Best features](documentation/model_evaluation_screenshots/model_best_features.png)
-  
+
+  + 🎯 This information can empower the client to strategically boost their home's market value by:
+
+    + Boost Overall Quality (OverallQual): Improve the house materials and finishes.
+    + Expand Garage and Basement Space (GarageArea, TotalBsmtSF): Increase garage square footage or finish basement areas.
+    + Renovate Strategically (YearRemodAdd): Recent remodels make a house appear modern and well-maintained, directly contributing to a higher sale price.
+
 #### User Story: Refit the pipeline with best features
 
 + As a **data analyst/data scientist**, I want to **refit the pipeline with the 4 identified best features,** so that **I can evaluate if the model's performance has improved.**
