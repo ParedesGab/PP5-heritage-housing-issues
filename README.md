@@ -531,13 +531,14 @@ The adoption of the CRISP-DM framework provided a structured, systematic, and it
 
 ## Unfixed Bugs
 
-+ Deployment to Heroku did not work due to the compiled lug size, which was larger than the max permitted (500 M).
++ Deployment to [Heroku](https://www.heroku.com/) did not work due to the compiled lug size, which was larger than the max permitted (500 M) (Figure below).
+
   + Solution: Deployment was peformed using the [Render](https://render.com/) platform instead.
 
 ![Failed Deployment to Heroku](documentation/bugs/failed_deployment_heroku.png)
 
 > [!IMPORTANT]
-> There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
+> There are no remaining bugs that I am aware of.
 
 ---
 
@@ -662,7 +663,7 @@ transformation (as vt) vt.YeoJohnsonTransformer: A feature_engine transformer th
   
 + Explore unsupervised machine learning techniques, such as clustering, to identify natural groupings among the house records from Ames, Iowa, based on their characteristics.
 
-+ Pearson and Spearman correlation highlighted YearBuilt's strong relationship with SalePrice. However, YearBuilt was eliminated during the SmartCorrelatedSelection phase of the regression pipeline, with YearRemod ultimately being selected as a top feature by SelectFromModel. Therefore, I am interested in refitting the pipeline while explicitly retaining YearBuilt to further assess its contribution.
++ Pearson and Spearman correlation highlighted YearBuilt's moderate to strong correlation with SalePrice. However, YearBuilt was eliminated during the SmartCorrelatedSelection phase of the regression pipeline, with YearRemod ultimately being selected as a top feature by SelectFromModel. Therefore, I am interested in refitting the pipeline while explicitly retaining YearBuilt to further assess its contribution.
   
 + Customize visualizations of top correlated variables against SalePrice for enhanced clarity. For instance, YearBuilt's relationship with SalePrice could be better represented using a linear plot instead of a scatter plot.
 
