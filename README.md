@@ -86,7 +86,7 @@ and has the two following business requirements:
 
 ## Hypothesis and how to validate?
 
-+ **HYPOTHESIS 1:** We hypothesize that a property's size is a key driver of its SalePrice (e.g., larger homes fetch higher sale prices). Consequently, we expect to find strong positive correlations between the target SalePrice and features indicative of house dimensions, such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or WoodDeckSF.
++ **HYPOTHESIS 1:** We hypothesize that a house's dimensional attributes exhibit a significant correlation with its sale price (e.g., larger above grade (ground) living area (GrLivArea) fetch higher sale prices).  Consequently, we expect to find strong positive correlations between the target SalePrice and features indicative of house dimensions, such as 1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or WoodDeckSF.
 
   + A Correlation study can help in this investigation.
 
@@ -99,7 +99,7 @@ and has the two following business requirements:
 
   + A Correlation study can help in this investigation.
   + Moreover, machine learning pipeline's feature importance analysis can confirm if the feature **OverallQual**
-	  is identified as a significant predictor among the model's most influential features.
+	  is identified as a significant predictor among the model's most influential features for predicting house sale prices.
 
 ---
 
@@ -195,17 +195,23 @@ The project was structured using **Epics and User Stories**, which are presented
 + As a **data analyst/data scientist**, I want to **perform Pearson and Spearman correlation analysis**, so that I can **understand the variables/features that most correlate with a house sale price (target), create heatmaps to facilita the data analysis through a visual representation of the correlation coefficients, and create visuals between the target SalePrice and the most correlated variables, for them to be displayed in the application dashboard**
 
   + Pearson Heatmap
+  
   ![Peason Heatmap](documentation/data_analysis_screenshots/heatmap_pearson.png)
 
   + Spearman Heatmap
+  
   ![Spearman Heatmap](documentation/data_analysis_screenshots/heatmap_spearman.png)
 
 #### User Story: PPS Analysis
 
 + As a data analyst/data scientist, I want to perform a Predictive Power Score (PPS) analysis, so that I can understand the variables/features that most effectively predict a house sale price (target), and visualize their predictive power using a heatmap to facilitate data analysis.
 
-+ PPS Heatmap
-![PPS Heatmap](documentation/data_analysis_screenshots/heatmap_pps.png)
+  + PPS Heatmap
+
+  ![PPS Heatmap](documentation/data_analysis_screenshots/heatmap_pps.png)
+
+> [!Note]
+> Heatmaps were intentionally excluded from the dashboard. While valuable for correlation analysis, they were deemed too technical for a general user, prioritizing a more accessible interface over granular supporting information.
 
 #### User Story: Create a Parallel Plot
 
@@ -213,7 +219,16 @@ The project was structured using **Epics and User Stories**, which are presented
 
 #### ⭐ User Story: FULFILLMENT OF BUSINESS REQUIREMENT 1
 
-+ CHANGE Fullfillment of Business Requirement 1: With an R2 score of 0.959 on the training set and a robust 0.778 on the test set, our regression model has successfully met the defined performance criteria. This enables us to confidently state that the model accurately predicts house sale prices in Ames, Iowa, fulfilling Business Requirement 2.
++ Pearson and Spearman correlation studies identified 1stFlrSF, GarageArea, GrLivArea, OverallQual, TotalBsmtSF, and YearBuilt as the variables most correlated with SalePrice. Their respective Pearson coefficients are 0.61, 0.62, 0.71, 0.79, 0.61, and 0.52 (see Pearson Heatmap), while Spearman coefficients are 0.58, 0.65, 0.59, 0.73, 0.81, 0.6, and 0.65 (see Spearman Heatmap). This indicates a moderate to strong positive correlation between these features and SalePrice, with **OverallQual consistently showing the highest correlation.**
+
++ Thus, the correlation analysis indicates that:
+
+  + Sale prices are typically higher for homes with larger first-floor square footage.
+  + Sale prices are typically higher for homes with larger garages.
+  + Sale prices are typically higher for homes with larger above-grade living areas.
+  + Sale prices are typically higher when the overall quality of the house's materials and finish improves.
+  + Sale prices are typically higher for homes with larger total basement area.
+  + Sale prices are typically higher for homes that were recently constructed.
 
 ### **Epic 3:** Data Preparation: Data cleaning
 
@@ -354,7 +369,8 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
     + Root Mean Squared Error: 39150.488
   
   + Visual inspection of the training and Test set's scatter plot confirms a robust correlation (R2 =0.95) between actual and predicted values, evident from the tight accumulation of dots around the regression line.
-  + ![Scatterplots Train and Test set](documentation/model_evaluation_screenshots/plot_model_performance_criteria.png)
+
+  ![Scatterplots Train and Test set](documentation/model_evaluation_screenshots/plot_model_performance_criteria.png)
 
 #### ⭐ User Story: FULFILLMENT OF BUSINESS REQUIREMENT 2
 
@@ -468,18 +484,24 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
   
 HYPOTHESIS 1
 
-+ We hypothesize that a property's size is a key driver of its sale with larger homes generally fetching higher SalePrices.
-  + Correct: Our house SalePrice correlation study confirms the hypothesis that larger homes generally fetch higher prices and indicated that the variables (house attributes) 1stFlrSF, GarageArea, GrLivArea, and TotalBsmtSF are the most influential variables in their correlation with SalePrice.
++ We hypothesize that a house's dimensional attributes exhibit a significant correlation with its sale price (e.g., larger above grade (ground) living area (GrLivArea) fetch higher sale prices).
+
+  + 🎯 Correct: Our house sale price correlation study confirmed the hypothesis that a property's dimensional attributes significantly correlate with its SalePrice. The analysis identified 1stFlrSF, GarageArea, GrLivArea, and TotalBsmtSF as the most influential variables, exhibiting strong to moderate correlation with SalePrice. Importantly, GrLivArea (above-grade living area) showed the highest correlation (higher than 0.7), indicating that larger living areas indeed tend to fetch higher sale prices.
 
 HYPOTHESIS 2
 
 + A recent survey showed that recently remodeled houses are perceived as more valuable.
-  + Correct: Correlation analysis placed YearRemodAdd within the top 10 variables for both Pearson and Spearman correlations with SalePrice. Interestingly, however, YearBuilt exhibited a stronger individual correlation. Nonetheless, the subsequent feature importance analysis from our machine learning pipeline confirmed YearRemodAdd as a significant and influential predictor within the model. These combined results collectively suggest that the survey's observation about the increased perceived value of remodeled houses is likely accurate.
+
+  + 🎯 Correct: Our correlation analysis identified YearRemodAdd as being within the top 10 variables exhibiting a moderate correlation to SalePrice (Pearson coefficient: 0.51, Spearman coefficient: 0.57). Furthermore, the feature importance analysis from our machine learning pipeline confirmed YearRemodAdd as a significant and influential predictor within the model. These combined results collectively suggest that the survey's observation about the increased perceived value of remodeled houses is likely accurate.
 
 HYPOTHESIS 3
 
-+ We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house SalePrices.
-  + Correct: Correlation studies consistently placed OverallQual within the top 5 variables for both Pearson and Spearman correlations with SalePrice. Furthermore, our machine learning pipeline's feature importance analysis identified OverallQual as the most important predictor among the model's influential features. Therefore, our hypothesis that a higher OverallQual rating directly correlates with increased house SalePrices is strongly supported by our analysis and the insights derived from our machine learning model.
++ We hypothesize that a higher OverallQual rating (indicating superior overall material and finish) will directly correlate with increased house sale prices.
+
+  + 🎯 Correct: Correlation studies placed the feature “OverallQual” within the top 5 variables for both Pearson and Spearman correlations with SalePrice. Importantly, it consistently exhibited the highest correlation among all features. Furthermore, our machine learning pipeline's feature importance analysis identified OverallQual as the most important predictor among the model's influential features. Therefore, our hypothesis that a higher OverallQual rating directly correlates with increased house sale prices is strongly supported by our analysis and the insights derived from our machine learning model.
+
+> [!IMPORTANT]
+> Considering the consistent high correlation observed and its top ranking in our machine learning model's feature importance analysis, OverallQual emerges as the most significant feature in predicting house sale prices!
 
 ### Page 5: Predict SalePrice
 
