@@ -12,7 +12,7 @@ def page_project_hypothesis_body():
    # conclusions taken from "02 - Churned Customer Study" notebook
     st.success(
         f"**HYPOTHESIS 1**\n\n"
-        f"*We hypothesize that that a house's dimensional attributes will "
+        f"*We hypothesize that a house's dimensional attributes will "
         f"exhibit a significant correlation with its sale price (e.g., larger "
         f"above grade living area (GrLivArea) fetch higher sale prices). "
         f"Consequently, we expect to find strong positive correlations between "
@@ -21,7 +21,7 @@ def page_project_hypothesis_body():
         f"GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or "
         f"WoodDeckSF.*\n\n"
         f"**Conclusion:**\n"
-        f"  * Our house sale price correlation study confirmed the hypothesis"
+        f"  * Our house sale price correlation study confirmed the hypothesis "
         f"that a property's dimensional attributes significantly correlate "
         f"with its sales price. Indeed, the analysis identified 1stFlrSF, "
         f"GarageArea, GrLivArea, and TotalBsmtSF as the most influential "
@@ -39,7 +39,7 @@ def page_project_hypothesis_body():
         f"**Conclusion:**\n"
         f"  * Our correlation analysis identified YearRemodAdd as being within "
         f"the top 10 variables exhibiting a moderate correlation to SalePrice "
-        f"(Pearson coefficient: 0.51, Spearman coefficient: 0.57). "
+        f"(Pearson coefficient: 0.51, Spearman coefficient: 0.57).\n"
         f"  * Furthermore, feature importance analysis from our "
         f"machine learning pipeline confirmed YearRemodAdd as a significant "
         f"and influential predictor within the model.\n"
@@ -67,7 +67,7 @@ def page_project_hypothesis_body():
         f"our machine learning model.\n"
         )
     
-    st.write(
+    st.success(
         f"Considering the consistent high correlation observed and its top "
         f"ranking in our machine learning model's feature importance analysis, "
         f"**OverallQual** emerges as the most significant feature in "
