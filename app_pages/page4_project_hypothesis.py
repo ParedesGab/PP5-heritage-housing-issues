@@ -12,19 +12,23 @@ def page_project_hypothesis_body():
    # conclusions taken from "02 - Churned Customer Study" notebook
     st.success(
         f"**HYPOTHESIS 1**\n\n"
-        f"*We hypothesize that a property's size is a key driver of its sale "
-        f"price, with larger homes generally fetching higher sale prices. "
+        f"*We hypothesize that that a house's dimensional attributes will "
+        f"exhibit a significant correlation with its sale price (e.g., larger "
+        f"above grade living area (GrLivArea) fetch higher sale prices). "
         f"Consequently, we expect to find strong positive correlations between "
         f"SalePrice and features indicative of house dimensions, such as: "
         f"1stFlrSF, 2ndFlrSF, BsmtFinSF1, BsmtUnfSF, TotalBsmtSF, GrLivArea, "
         f"GarageArea, MasVnrArea, EnclosedPorch, OpenPorchSF, and/or "
         f"WoodDeckSF.*\n\n"
         f"**Conclusion:**\n"
-        f"  * Our house sale price correlation study confirms "
-        f"the hypothesis that larger homes generally fetch higher prices. "
-        f"However, the analysis indicated that 1stFlrSF, GarageArea, "
-        f"GrLivArea, and TotalBsmtSF are the most influential variables in "
-        f"their correlation with SalePrice.\n"
+        f"  * Our house sale price correlation study confirmed the hypothesis"
+        f"that a property's dimensional attributes significantly correlate "
+        f"with its sales price. Indeed, the analysis identified 1stFlrSF, "
+        f"GarageArea, GrLivArea, and TotalBsmtSF as the most influential "
+        f"variables, exhibiting strong to moderate correlation with SalePrice. "
+        f"Importantly, GrLivArea (above-grade living area) showed the highest "
+        f"correlation (higher than 0.7), indicating that larger living areas "
+        f"tend to fetch higher sale prices.\n"
         )
     
     st.write("")
@@ -33,11 +37,10 @@ def page_project_hypothesis_body():
         f"*A recent survey showed that recently remodeled houses are "
         f"perceived as more valuable.*\n\n"
         f"**Conclusion:**\n"
-        f"  * Correlation analysis placed YearRemodAdd within the top 10 "
-        f"variables for both Pearson and Spearman correlations with SalePrice. "
-        f"Interestingly, however, YearBuilt exhibited a stronger "
-        f"individual correlation.\n"
-        f"  * Nonetheless, the subsequent feature importance analysis from our "
+        f"  * Our correlation analysis identified YearRemodAdd as being within "
+        f"the top 10 variables exhibiting a moderate correlation to SalePrice "
+        f"(Pearson coefficient: 0.51, Spearman coefficient: 0.57). "
+        f"  * Furthermore, feature importance analysis from our "
         f"machine learning pipeline confirmed YearRemodAdd as a significant "
         f"and influential predictor within the model.\n"
         f"  * These combined results collectively suggest that the survey's "
@@ -63,3 +66,10 @@ def page_project_hypothesis_body():
         f"supported by our analysis and the insights derived from "
         f"our machine learning model.\n"
         )
+    
+    st.write(
+        f"Considering the consistent high correlation observed and its top "
+        f"ranking in our machine learning model's feature importance analysis, "
+        f"**OverallQual** emerges as the most significant feature in "
+        f"predicting house sale prices!"
+    )

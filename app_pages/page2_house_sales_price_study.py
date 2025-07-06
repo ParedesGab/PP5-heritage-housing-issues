@@ -47,7 +47,8 @@ def page_house_sales_price_study_body():
         f"* Pearson and Spearman correlation studies were conducted to better "
         f"understand how the variables correlate with the target Sales Price.\n"
         f"* The most correlated variables with Sales Price are: "
-        f"**{vars_to_study}**\n"
+        f"**{vars_to_study}**, with **OverallQual consistently showing the "
+        f"highest correlation.**\n"
     )
     st.write("")
 
