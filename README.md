@@ -215,21 +215,30 @@ The project was structured using **Epics and User Stories**, which are presented
 
 + CHANGE Fullfillment of Business Requirement 1: With an R2 score of 0.959 on the training set and a robust 0.778 on the test set, our regression model has successfully met the defined performance criteria. This enables us to confidently state that the model accurately predicts house sale prices in Ames, Iowa, fulfilling Business Requirement 2.
 
-### **Epic 3:** Data Preparation - Data cleaning
+### **Epic 3:** Data Preparation: Data cleaning
 
 For a more detailed description, please revise Jupyter notebook: [3-DataCleaning.ipynb](https://github.com/ParedesGab/PP5-heritage-housing-issues/blob/main/jupyter_notebooks/3-DataCleaning.ipynb)
 
 #### User Story: Data Cleaning
 
-+ As a **data analyst/data scientist**, I want to **clean my data, by evaluating missing values, handling missing values, and dropping duplicated rows and/or variables with high missing values (more than 80%)**, so that **the dataset is prepared for robust data analysis and, and these essential cleaning steps are incorporated into the model training pipeline**
++ As a **data analyst/data scientist**, I want to **clean my data, by evaluating missing values, handling missing values, and dropping duplicated rows and/or variables with high missing values (more than 80%)**, so that **the dataset is prepared for robust data analysis and, these essential cleaning steps are incorporated into the model training pipeline**.
 
-### **Epic 4:** Data Preparation -  Feature Engineering
+### **Epic 4:** Data Preparation: Feature Engineering
 
 For a more detailed description, please revise Jupyter notebook: [4-FeatureEngineering.ipynb](https://github.com/ParedesGab/PP5-heritage-housing-issues/blob/main/jupyter_notebooks/4-FeatureEngineering.ipynb)
 
 #### User Story: Feature Engineering
 
 + As a **data analyst/data scientist**, I want to **feature engineer my dataset**, by removing outliers (using Winsorizer), converting categorical variables to numerical (using ordinal encoding where appropriate), performing numerical transformations for more normal distributions (using YeoJohnsonTransformer), and applying Smart Correlation Selection to reduce highly correlated features, so that **these steps are incorporated into the model training pipeline, following data cleaning, to optimally prepare the data, before splitting it into train and test sets.**
+
++ Below is an example of a variable after undergoing Winsorizer transformation.
+![Winsorizer](documentation/data_analysis_screenshots/example_winsorizer_transformation.png)
+
++ Below is an example of a categorical variable after Ordinal Encoding.
+![Ordinal Encoding](documentation/data_analysis_screenshots/example_ordinal_encoding_transformation.png)
+
++ Below is an example of a numeric variable after undergoing YeoJohnson transformation.
+![YeoJohnsonTransformer](documentation/data_analysis_screenshots/example_yeo_johnson_transformation.png)
 
 ### **Epic 5:** Model training, optimization and validation
 
@@ -343,6 +352,9 @@ For a more detailed description, please revise Jupyter notebook [5-ModellingAndE
     + Mean Absolute Error: 24805.924
     + Mean Squared Error: 1532760742.768
     + Root Mean Squared Error: 39150.488
+  
+  + Visual inspection of the training and Test set's scatter plot confirms a robust correlation (R2 =0.95) between actual and predicted values, evident from the tight accumulation of dots around the regression line.
+  + ![Scatterplots Train and Test set](documentation/model_evaluation_screenshots/plot_model_performance_criteria.png)
 
 #### ⭐ User Story: FULFILLMENT OF BUSINESS REQUIREMENT 2
 
